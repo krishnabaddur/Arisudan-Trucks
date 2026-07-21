@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book Vehicle</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:420px;
+margin:30px auto;
+}
+
+h2{
+text-align:center;
+color:#FFD700;
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#FFD700;
+color:black;
+font-size:18px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#fare{
+margin:20px 0;
+font-size:22px;
+text-align:center;
+color:#FFD700;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🚛 Book Vehicle</h2>
+
+<input id="pickup" placeholder="Pickup Location">
+
+<input id="drop" placeholder="Drop Location">
+
+<input id="distance" type="number" placeholder="Distance (KM)">
+
+<select id="vehicle">
+<option value="400">3 Wheeler</option>
+<option value="800">Mini Truck</option>
+<option value="1500">Truck 5 Ton</option>
+</select>
+
+<div id="fare">Estimated Fare ₹0</div>
+
+<button onclick="book()">Book Now</button>
+
+</div>
+
+<script>
+function book(){
+
+let base=Number(document.getElementById("vehicle").value);
+
+let km=Number(document.getElementById("distance").value);
+
+let total=base+(km*25);
+
+document.getElementById("fare").innerHTML="Estimated Fare ₹"+total;
+
+alert("Booking Successful");
+}
+</script>
+
+</body>
+</html>
