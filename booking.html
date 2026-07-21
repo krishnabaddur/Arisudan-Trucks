@@ -92,6 +92,44 @@ document.getElementById("fare").innerHTML="Estimated Fare ₹"+total;
 
 alert("Booking Successful");
 }
+<script>
+
+function book(){
+
+const booking={
+
+id:"AT"+Date.now(),
+
+pickup:document.getElementById("pickup").value,
+
+drop:document.getElementById("drop").value,
+
+distance:Number(document.getElementById("distance").value),
+
+vehicle:document.getElementById("vehicle").options[
+document.getElementById("vehicle").selectedIndex].text
+
+};
+
+const base=Number(document.getElementById("vehicle").value);
+
+booking.total=base+(booking.distance*25);
+
+let bookings=JSON.parse(localStorage.getItem("bookings"))||[];
+
+bookings.push(booking);
+
+localStorage.setItem("bookings",JSON.stringify(bookings));
+
+document.getElementById("fare").innerHTML=
+"Estimated Fare ₹"+booking.total;
+
+alert("Booking Saved Successfully");
+
+location.href="history.html";
+
+}
+
 </script>
 
 </body>
