@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Driver Dashboard</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+}
+
+header{
+background:#16a34a;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.status{
+color:#22c55e;
+font-size:20px;
+font-weight:bold;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:12px;
+background:#16a34a;
+color:white;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+🚚 Driver Dashboard
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Assigned Trip</h2>
+
+<p><b>Booking:</b> AT100001</p>
+
+<p><b>Pickup:</b> Vijayapura</p>
+
+<p><b>Drop:</b> Bengaluru</p>
+
+<p class="status" id="tripStatus">
+Driver Assigned
+</p>
+
+<button onclick="updateStatus()">
+Update Status
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const trip=[
+"Driver Assigned",
+"Picked Up",
+"In Transit",
+"Delivered"
+];
+
+let index=0;
+
+function updateStatus(){
+
+if(index<trip.length-1){
+index++;
+}
+
+document.getElementById("tripStatus").innerHTML=trip[index];
+
+}
+
+</script>
+
+</body>
+</html>
