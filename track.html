@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Trip</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+}
+
+header{
+background:#FFD700;
+color:black;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.status{
+font-size:22px;
+color:#FFD700;
+margin-top:15px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#FFD700;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+🚛 Live Trip Tracking
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Booking ID</h2>
+
+<p>#AT100001</p>
+
+<div class="status" id="status">
+Booked
+</div>
+
+<button onclick="nextStatus()">
+Refresh Status
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const statusList=[
+"Booked",
+"Driver Assigned",
+"Picked Up",
+"In Transit",
+"Delivered"
+];
+
+let i=0;
+
+function nextStatus(){
+
+if(i<statusList.length-1){
+i++;
+}
+
+document.getElementById("status").innerHTML=statusList[i];
+
+}
+
+</script>
+
+</body>
+</html>
