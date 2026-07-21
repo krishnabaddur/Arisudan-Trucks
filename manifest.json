@@ -1,0 +1,10 @@
+{
+  "name": "Arisudan Trucks",
+  "short_name": "Arisudan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#FFD700",
+  "orientation": "portrait",
+  "icons": []
+}
