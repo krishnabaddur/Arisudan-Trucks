@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arisudan Trucks</title>
 
+<link rel="manifest" href="manifest.json">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+max-width:400px;
+padding:20px;
+}
+
+h1{
+font-size:40px;
+color:#FFD700;
+}
+
+p{
+margin:20px 0;
+color:#ddd;
+}
+
+button{
+padding:15px 25px;
+background:#FFD700;
+color:#000;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚛 Arisudan Trucks</h1>
+
+<p>Book • Track • Deliver</p>
+
+<button onclick="alert('Welcome to Arisudan Trucks')">
+Get Started
+</button>
+
+</div>
+
+<script>
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
