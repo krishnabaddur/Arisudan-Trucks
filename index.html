@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arisudan Trucks</title>
-
 <link rel="manifest" href="manifest.json">
 
 <style>
@@ -16,25 +15,89 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#111827;
+background:#0f172a;
 color:white;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-text-align:center;
 }
 
 .container{
-max-width:400px;
-padding:20px;
+width:90%;
+max-width:420px;
+text-align:center;
+}
+
+.logo{
+font-size:60px;
 }
 
 h1{
-font-size:40px;
+font-size:36px;
+margin-top:10px;
 color:#FFD700;
 }
 
+p{
+margin:15px 0 30px;
+color:#ddd;
+}
+
+button{
+width:100%;
+padding:16px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.customer{
+background:#FFD700;
+color:black;
+}
+
+.driver{
+background:#16a34a;
+color:white;
+}
+
+.admin{
+background:#2563eb;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">🚛</div>
+
+<h1>Arisudan Trucks</h1>
+
+<p>Book • Track • Deliver</p>
+
+<button class="customer">Customer Login</button>
+
+<button class="driver">Driver Login</button>
+
+<button class="admin">Admin Login</button>
+
+</div>
+
+<script>
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
 p{
 margin:20px 0;
 color:#ddd;
