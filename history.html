@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking History</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+margin:0;
+}
+header{
+background:#FFD700;
+color:black;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+.container{
+padding:20px;
+}
+.card{
+background:#1f2937;
+padding:20px;
+margin-bottom:15px;
+border-radius:12px;
+}
+.price{
+color:#22c55e;
+font-weight:bold;
+font-size:20px;
+}
+.status{
+color:#FFD700;
+}
+</style>
+</head>
+
+<body>
+
+<header>Booking History</header>
+
+<div id="history" class="container"></div>
+
+<script>
+
+const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+let html="";
+
+if(bookings.length===0){
+html="<h2>No Bookings Found</h2>";
+}
+
+bookings.forEach(b=>{
+
+html += `
+<div class="card">
+<h3>${b.id}</h3>
+<p><b>Pickup:</b> ${b.pickup}</p>
+<p><b>Drop:</b> ${b.drop}</p>
+<p><b>Vehicle:</b> ${b.vehicle}</p>
+<p class="price">₹${b.total}</p>
+<p class="status">Booked</p>
+</div>
+`;
+
+});
+
+document.getElementById("history").innerHTML = html;
+
+</script>
+
+</body>
+</html>
