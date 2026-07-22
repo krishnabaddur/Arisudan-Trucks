@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arisudan Trucks</title>
+
 <link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
 
 <style>
 *{
@@ -31,16 +33,17 @@ text-align:center;
 
 .logo{
 font-size:60px;
+margin-bottom:10px;
 }
 
 h1{
 font-size:36px;
-margin-top:10px;
 color:#FFD700;
+margin-bottom:10px;
 }
 
 p{
-margin:15px 0 30px;
+margin-bottom:30px;
 color:#ddd;
 }
 
@@ -57,21 +60,21 @@ cursor:pointer;
 
 .customer{
 background:#FFD700;
-color:black;
+color:#000;
 }
 
 .driver{
 background:#16a34a;
-color:white;
+color:#fff;
 }
 
 .admin{
 background:#2563eb;
-color:white;
+color:#fff;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
@@ -91,49 +94,8 @@ color:white;
 </div>
 
 <script>
-if('serviceWorker' in navigator){
-navigator.serviceWorker.register('sw.js');
-}
-</script>
-
-</body>
-</html>
-p{
-margin:20px 0;
-color:#ddd;
-}
-
-button{
-padding:15px 25px;
-background:#FFD700;
-color:#000;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>🚛 Arisudan Trucks</h1>
-
-<p>Book • Track • Deliver</p>
-
-<button onclick="alert('Welcome to Arisudan Trucks')">
-Get Started
-</button>
-
-</div>
-
-<script>
-if('serviceWorker' in navigator){
-navigator.serviceWorker.register('sw.js');
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
 }
 </script>
 
