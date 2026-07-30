@@ -2,101 +2,907 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Login - Arisudan Trucks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+
+<title>Login | Arisudan Transport</title>
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
+
 body{
-background:#111827;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,210,59,.12),transparent 30%),
+    radial-gradient(circle at 90% 90%,rgba(239,68,68,.10),transparent 30%),
+    #07111f;
+  color:#fff;
+  overflow-x:hidden;
 }
-.card{
-width:90%;
-max-width:380px;
-background:#1f2937;
-padding:25px;
-border-radius:15px;
+
+/* BACKGROUND DECORATION */
+
+.bg-circle{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
 }
-h2{
-color:#FFD700;
-text-align:center;
-margin-bottom:20px;
+
+.circle1{
+  width:220px;
+  height:220px;
+  background:rgba(255,212,59,.05);
+  top:-90px;
+  right:-70px;
 }
+
+.circle2{
+  width:180px;
+  height:180px;
+  background:rgba(239,68,68,.05);
+  bottom:-70px;
+  left:-60px;
+}
+
+/* PAGE */
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px 15px;
+}
+
+/* CARD */
+
+.login-card{
+  width:100%;
+  max-width:430px;
+  background:rgba(15,27,43,.92);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:25px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    inset 0 1px rgba(255,255,255,.05);
+  backdrop-filter:blur(15px);
+}
+
+/* TOP */
+
+.top{
+  text-align:center;
+}
+
+.logo{
+  width:85px;
+  height:85px;
+  margin:auto;
+  border-radius:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  background:linear-gradient(145deg,#ffd43b,#ffb300);
+  box-shadow:
+    0 15px 35px rgba(255,193,7,.2);
+}
+
+.brand{
+  margin-top:15px;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.brand span{
+  color:#ffd43b;
+}
+
+.subtitle{
+  margin-top:7px;
+  color:#8997a9;
+  font-size:13px;
+}
+
+/* ROLE */
+
+.role-title{
+  margin-top:25px;
+  margin-bottom:12px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:#8190a4;
+}
+
+.roles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+}
+
+.role{
+  border:1px solid rgba(255,255,255,.08);
+  background:#101d2d;
+  border-radius:16px;
+  padding:13px 5px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.role:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,212,59,.5);
+}
+
+.role.active{
+  background:linear-gradient(
+    145deg,
+    rgba(255,212,59,.18),
+    rgba(255,212,59,.06)
+  );
+  border-color:#ffd43b;
+  box-shadow:0 8px 25px rgba(255,212,59,.08);
+}
+
+.role-icon{
+  font-size:25px;
+  display:block;
+  margin-bottom:7px;
+}
+
+.role-name{
+  font-size:11px;
+  font-weight:bold;
+  color:#b7c2d0;
+}
+
+.role.active .role-name{
+  color:#ffd43b;
+}
+
+/* LOGIN TITLE */
+
+.login-title{
+  margin:25px 0 18px;
+}
+
+.login-title h2{
+  font-size:22px;
+}
+
+.login-title p{
+  color:#77869a;
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* INPUT */
+
+.field{
+  margin-bottom:15px;
+}
+
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+  color:#aab6c5;
+  margin-bottom:7px;
+}
+
+.input-box{
+  position:relative;
+}
+
+.input-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:17px;
+  opacity:.7;
+}
+
 input{
-width:100%;
-padding:15px;
-margin:10px 0;
-border:none;
-border-radius:10px;
+  width:100%;
+  height:53px;
+  padding:0 45px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:#0a1625;
+  color:#fff;
+  outline:none;
+  font-size:14px;
+  transition:.2s;
 }
-button{
-width:100%;
-padding:15px;
-background:#FFD700;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
+
+input::placeholder{
+  color:#536174;
 }
-p{
-margin-top:15px;
-text-align:center;
-color:white;
+
+input:focus{
+  border-color:#ffd43b;
+  box-shadow:0 0 0 3px rgba(255,212,59,.08);
 }
-a{
-color:#FFD700;
-text-decoration:none;
+
+.eye{
+  position:absolute;
+  right:6px;
+  top:6px;
+  width:41px;
+  height:41px;
+  border:0;
+  border-radius:11px;
+  background:transparent;
+  color:#8c99aa;
+  cursor:pointer;
+  font-size:17px;
 }
+
+/* OPTIONS */
+
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:4px 0 18px;
+}
+
+.remember{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:11px;
+  color:#8794a6;
+}
+
+.remember input{
+  width:16px;
+  height:16px;
+  padding:0;
+  accent-color:#ffd43b;
+}
+
+.forgot{
+  font-size:11px;
+  color:#ffd43b;
+  cursor:pointer;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+  width:100%;
+  height:56px;
+  border:0;
+  border-radius:16px;
+  background:linear-gradient(135deg,#ffe16a,#ffc400);
+  color:#101010;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(255,196,0,.16);
+  transition:.2s;
+}
+
+.login-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 35px rgba(255,196,0,.25);
+}
+
+.login-btn:active{
+  transform:scale(.98);
+}
+
+/* STATUS */
+
+.message{
+  display:none;
+  margin-bottom:15px;
+  padding:12px;
+  border-radius:12px;
+  font-size:12px;
+  text-align:center;
+}
+
+.message.error{
+  display:block;
+  color:#ffb4b4;
+  background:rgba(239,68,68,.08);
+  border:1px solid rgba(239,68,68,.2);
+}
+
+.message.success{
+  display:block;
+  color:#a7f3b8;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.2);
+}
+
+/* REGISTER */
+
+.register{
+  text-align:center;
+  margin-top:22px;
+  font-size:12px;
+  color:#7d8a9b;
+}
+
+.register a{
+  color:#ffd43b;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* BACK */
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:18px;
+  color:#657386;
+  text-decoration:none;
+  font-size:11px;
+}
+
+.back:hover{
+  color:#ffd43b;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  margin-top:22px;
+  font-size:10px;
+  color:#475568;
+}
+
+.footer span{
+  color:#ffd43b;
+}
+
+/* MOBILE */
+
+@media(max-width:380px){
+
+  .login-card{
+    padding:20px;
+    border-radius:23px;
+  }
+
+  .logo{
+    width:72px;
+    height:72px;
+    font-size:36px;
+  }
+
+  .brand{
+    font-size:23px;
+  }
+
+  .role{
+    padding:11px 3px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
 
-<h2>🚛 Arisudan Trucks</h2>
+<div class="page">
 
-<input type="email" id="email" placeholder="Email">
+<div class="login-card">
 
-<input type="password" id="password" placeholder="Password">
+  <div class="top">
 
-<button onclick="login()">Login</button>
+    <div class="logo">
+      🚛
+    </div>
 
-<p>
-New User?
-<a href="register.html">Register</a>
-</p>
+    <div class="brand">
+      ARISUDAN <span>TRANSPORT</span>
+    </div>
+
+    <div class="subtitle">
+      Book • Track • Deliver
+    </div>
+
+  </div>
+
+
+  <div class="role-title">
+    Choose account
+  </div>
+
+
+  <div class="roles">
+
+    <div
+      class="role active"
+      data-role="customer"
+      onclick="selectRole('customer')">
+
+      <span class="role-icon">📦</span>
+      <span class="role-name">Customer</span>
+
+    </div>
+
+
+    <div
+      class="role"
+      data-role="driver"
+      onclick="selectRole('driver')">
+
+      <span class="role-icon">🚚</span>
+      <span class="role-name">Driver</span>
+
+    </div>
+
+
+    <div
+      class="role"
+      data-role="admin"
+      onclick="selectRole('admin')">
+
+      <span class="role-icon">🛡️</span>
+      <span class="role-name">Admin</span>
+
+    </div>
+
+  </div>
+
+
+  <div class="login-title">
+
+    <h2 id="roleTitle">
+      Customer Login
+    </h2>
+
+    <p>
+      Enter your registered details to continue
+    </p>
+
+  </div>
+
+
+  <div id="message" class="message"></div>
+
+
+  <form id="loginForm">
+
+    <div class="field">
+
+      <label>
+        MOBILE NUMBER
+      </label>
+
+      <div class="input-box">
+
+        <span class="input-icon">📱</span>
+
+        <input
+          id="mobile"
+          type="tel"
+          inputmode="numeric"
+          maxlength="10"
+          placeholder="10-digit mobile number"
+          required
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        PASSWORD
+      </label>
+
+      <div class="input-box">
+
+        <span class="input-icon">🔐</span>
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+          required
+        >
+
+        <button
+          type="button"
+          class="eye"
+          onclick="togglePassword()"
+          id="eye">
+          👁️
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="options">
+
+      <label class="remember">
+
+        <input
+          type="checkbox"
+          id="remember">
+
+        Remember me
+
+      </label>
+
+      <span class="forgot">
+        Forgot password?
+      </span>
+
+    </div>
+
+
+    <button
+      type="submit"
+      class="login-btn">
+
+      🔐 &nbsp; LOGIN TO ARISUDAN
+
+    </button>
+
+  </form>
+
+
+  <div class="register">
+
+    New customer?
+
+    <a href="./register.html">
+      Create Account
+    </a>
+
+  </div>
+
+
+  <a
+    class="back"
+    href="./index.html">
+
+    ← Back to Home
+
+  </a>
+
+
+  <div class="footer">
+
+    © 2026 <span>Arisudan Transport</span>
+    • Vijayapura
+
+  </div>
 
 </div>
 
+</div>
+
+
 <script>
-function login(){
 
-const email=document.getElementById("email").value.trim();
-const password=document.getElementById("password").value.trim();
+let selectedRole = "customer";
 
-if(email==="" || password===""){
-alert("Please enter Email and Password");
-return;
+
+const roleTitle =
+document.getElementById("roleTitle");
+
+const message =
+document.getElementById("message");
+
+
+function selectRole(role){
+
+  selectedRole = role;
+
+  document.querySelectorAll(".role")
+  .forEach(function(item){
+
+    item.classList.remove("active");
+
+  });
+
+
+  document
+  .querySelector(
+    '.role[data-role="' + role + '"]'
+  )
+  .classList.add("active");
+
+
+  if(role === "customer"){
+
+    roleTitle.textContent =
+    "Customer Login";
+
+  }
+
+  if(role === "driver"){
+
+    roleTitle.textContent =
+    "Driver Login";
+
+  }
+
+  if(role === "admin"){
+
+    roleTitle.textContent =
+    "Admin Login";
+
+  }
+
+  clearMessage();
+
 }
 
-localStorage.setItem("loggedIn","true");
 
-alert("Login Successful");
+function togglePassword(){
 
-location.href="dashboard.html";
+  const password =
+  document.getElementById("password");
+
+  const eye =
+  document.getElementById("eye");
+
+
+  if(password.type === "password"){
+
+    password.type = "text";
+    eye.textContent = "🙈";
+
+  }else{
+
+    password.type = "password";
+    eye.textContent = "👁️";
+
+  }
 
 }
+
+
+function showMessage(text,type){
+
+  message.textContent = text;
+  message.className =
+  "message " + type;
+
+}
+
+
+function clearMessage(){
+
+  message.textContent = "";
+  message.className = "message";
+
+}
+
+
+document
+.getElementById("mobile")
+.addEventListener("input",function(){
+
+  this.value =
+  this.value
+  .replace(/\D/g,"")
+  .slice(0,10);
+
+});
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  clearMessage();
+
+
+  const mobile =
+  document.getElementById("mobile")
+  .value.trim();
+
+
+  const password =
+  document.getElementById("password")
+  .value;
+
+
+  const remember =
+  document.getElementById("remember")
+  .checked;
+
+
+  if(mobile.length !== 10){
+
+    showMessage(
+      "Please enter a valid 10-digit mobile number.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 4){
+
+    showMessage(
+      "Password must contain at least 4 characters.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Temporary local login.
+
+    Customer and driver accounts will be
+    created by register.html.
+
+    Admin demo:
+    Mobile: 9999999999
+    Password: admin123
+  */
+
+
+  if(
+    selectedRole === "admin" &&
+    mobile === "9999999999" &&
+    password === "admin123"
+  ){
+
+    localStorage.setItem(
+      "arisudan_session",
+      JSON.stringify({
+
+        role:"admin",
+        mobile:mobile,
+        name:"Arisudan Admin"
+
+      })
+    );
+
+
+    showMessage(
+      "Admin login successful!",
+      "success"
+    );
+
+
+    setTimeout(function(){
+
+      location.href =
+      "./admin.html";
+
+    },700);
+
+
+    return;
+
+  }
+
+
+  const users =
+  JSON.parse(
+    localStorage.getItem("arisudan_users")
+  ) || [];
+
+
+  const user =
+  users.find(function(u){
+
+    return(
+      u.mobile === mobile &&
+      u.password === password &&
+      u.role === selectedRole
+    );
+
+  });
+
+
+  if(!user){
+
+    showMessage(
+      "Invalid mobile number or password.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const session = {
+
+    id:user.id || "",
+    name:user.name || "",
+    mobile:user.mobile,
+    role:user.role
+
+  };
+
+
+  if(remember){
+
+    localStorage.setItem(
+      "arisudan_session",
+      JSON.stringify(session)
+    );
+
+  }else{
+
+    sessionStorage.setItem(
+      "arisudan_session",
+      JSON.stringify(session)
+    );
+
+  }
+
+
+  showMessage(
+    "Login successful! Opening dashboard...",
+    "success"
+  );
+
+
+  setTimeout(function(){
+
+    if(selectedRole === "customer"){
+
+      location.href =
+      "./dashboard.html";
+
+    }
+
+    else if(selectedRole === "driver"){
+
+      location.href =
+      "./driver.html";
+
+    }
+
+    else{
+
+      location.href =
+      "./admin.html";
+
+    }
+
+  },700);
+
+});
+
+
+selectRole("customer");
+
 </script>
 
 </body>
