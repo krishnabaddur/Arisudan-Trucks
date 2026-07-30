@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Vehicle</title>
 
 <style>
@@ -31,6 +31,7 @@ margin:10px 0;
 border:none;
 border-radius:10px;
 font-size:16px;
+box-sizing:border-box;
 }
 
 button{
@@ -45,27 +46,30 @@ border-radius:10px;
 cursor:pointer;
 }
 
+button:hover{
+opacity:0.9;
+}
+
 #fare{
 margin:20px 0;
 font-size:22px;
 text-align:center;
 color:#FFD700;
 }
-</style><link rel="stylesheet" href="style.css">
+</style>
 
 </head>
-
 <body>
 
 <div class="container">
 
 <h2>🚛 Book Vehicle</h2>
 
-<input id="pickup" placeholder="Pickup Location">
+<input id="pickup" type="text" placeholder="Pickup Location" required>
 
-<input id="drop" placeholder="Drop Location">
+<input id="drop" type="text" placeholder="Drop Location" required>
 
-<input id="distance" type="number" placeholder="Distance (KM)">
+<input id="distance" type="number" placeholder="Distance (KM)" required>
 
 <select id="vehicle">
 <option value="400">3 Wheeler</option>
@@ -80,49 +84,37 @@ color:#FFD700;
 </div>
 
 <script>
+
 function book(){
 
-let base=Number(document.getElementById("vehicle").value);
+const pickup=document.getElementById("pickup").value.trim();
+const drop=document.getElementById("drop").value.trim();
+const distance=Number(document.getElementById("distance").value);
 
-let km=Number(document.getElementById("distance").value);
-
-let total=base+(km*25);
-
-document.getElementById("fare").innerHTML="Estimated Fare ₹"+total;
-
-alert("Booking Successful");
+if(pickup==="" || drop==="" || distance<=0){
+alert("Please fill all details.");
+return;
 }
-<script>
 
-function book(){
+const vehicleSelect=document.getElementById("vehicle");
+const base=Number(vehicleSelect.value);
 
 const booking={
-
 id:"AT"+Date.now(),
-
-pickup:document.getElementById("pickup").value,
-
-drop:document.getElementById("drop").value,
-
-distance:Number(document.getElementById("distance").value),
-
-vehicle:document.getElementById("vehicle").options[
-document.getElementById("vehicle").selectedIndex].text
-
+pickup:pickup,
+drop:drop,
+distance:distance,
+vehicle:vehicleSelect.options[vehicleSelect.selectedIndex].text,
+total:base+(distance*25)
 };
 
-const base=Number(document.getElementById("vehicle").value);
+document.getElementById("fare").innerHTML="Estimated Fare ₹"+booking.total;
 
-booking.total=base+(booking.distance*25);
-
-let bookings=JSON.parse(localStorage.getItem("bookings"))||[];
+let bookings=JSON.parse(localStorage.getItem("bookings")) || [];
 
 bookings.push(booking);
 
 localStorage.setItem("bookings",JSON.stringify(bookings));
-
-document.getElementById("fare").innerHTML=
-"Estimated Fare ₹"+booking.total;
 
 alert("Booking Saved Successfully");
 
