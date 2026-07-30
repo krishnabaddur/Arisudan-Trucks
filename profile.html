@@ -3,146 +3,656 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>My Profile</title>
+<meta name="theme-color" content="#07111f">
+<title>My Profile | Arisudan Transport</title>
 
 <style>
-body{
+*{
+box-sizing:border-box;
 margin:0;
+padding:0;
 font-family:Arial,sans-serif;
-background:#111827;
+}
+
+body{
+background:#07111f;
 color:white;
+min-height:100vh;
+}
+
+.app{
+width:100%;
+max-width:520px;
+margin:auto;
+min-height:100vh;
 }
 
 header{
-background:#FFD700;
-color:black;
-padding:20px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
+padding:18px;
+background:linear-gradient(145deg,#10253b,#07111f);
+border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.container{
-padding:20px;
-max-width:450px;
-margin:auto;
+.header-row{
+display:flex;
+align-items:center;
+gap:13px;
+}
+
+.back{
+width:42px;
+height:42px;
+border-radius:13px;
+background:#102033;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-decoration:none;
+font-size:21px;
+}
+
+.icon{
+width:44px;
+height:44px;
+border-radius:14px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+}
+
+header h1{
+font-size:18px;
+}
+
+header p{
+font-size:10px;
+color:#78869a;
+margin-top:3px;
+}
+
+.content{
+padding:20px 18px 40px;
 }
 
 .profile{
 text-align:center;
-margin:30px 0;
+padding:8px 0 22px;
 }
 
 .avatar{
-width:100px;
-height:100px;
-border-radius:50%;
-background:#FFD700;
-color:black;
-font-size:42px;
+width:85px;
+height:85px;
+margin:auto;
+border-radius:27px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+color:#111;
 display:flex;
 align-items:center;
 justify-content:center;
-margin:auto;
-font-weight:bold;
+font-size:34px;
+font-weight:900;
+box-shadow:0 15px 40px rgba(255,196,0,.12);
+}
+
+.profile h2{
+margin-top:13px;
+font-size:21px;
+}
+
+.profile p{
+color:#78869a;
+font-size:11px;
+margin-top:5px;
 }
 
 .card{
-background:#1f2937;
-padding:20px;
-border-radius:15px;
-margin-top:20px;
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:21px;
+padding:18px;
+margin-bottom:15px;
 }
 
-.row{
-margin:15px 0;
+.card-title{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:18px;
+}
+
+.card-icon{
+width:35px;
+height:35px;
+border-radius:11px;
+background:rgba(255,212,59,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:17px;
+}
+
+.card-title h3{
+font-size:14px;
+}
+
+.field{
+margin-bottom:15px;
+}
+
+.field:last-child{
+margin-bottom:0;
 }
 
 label{
-color:#FFD700;
 display:block;
-margin-bottom:5px;
+color:#8c99aa;
+font-size:9px;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.input-box{
+position:relative;
+}
+
+.input-icon{
+position:absolute;
+left:13px;
+top:50%;
+transform:translateY(-50%);
+font-size:16px;
 }
 
 input{
 width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-box-sizing:border-box;
+height:50px;
+border-radius:13px;
+border:1px solid rgba(255,255,255,.07);
+background:#091625;
+color:white;
+padding:0 13px 0 40px;
+outline:none;
+font-size:13px;
 }
 
-button{
+input:focus{
+border-color:#ffd43b;
+}
+
+input:disabled{
+color:#7c899a;
+}
+
+.info-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:13px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.info-row:last-child{
+border-bottom:0;
+padding-bottom:0;
+}
+
+.info-label{
+color:#718095;
+font-size:10px;
+}
+
+.info-value{
+font-size:11px;
+font-weight:bold;
+}
+
+.badge{
+padding:6px 9px;
+border-radius:8px;
+background:rgba(255,212,59,.1);
+color:#ffd43b;
+font-size:9px;
+font-weight:bold;
+}
+
+.message{
+display:none;
+padding:12px;
+border-radius:12px;
+margin-bottom:14px;
+text-align:center;
+font-size:11px;
+}
+
+.message.success{
+display:block;
+background:rgba(34,197,94,.08);
+color:#86efac;
+}
+
+.message.error{
+display:block;
+background:rgba(239,68,68,.08);
+color:#fca5a5;
+}
+
+.save{
 width:100%;
-padding:15px;
-margin-top:20px;
-background:#FFD700;
-color:black;
-border:none;
-border-radius:10px;
-font-size:18px;
+height:53px;
+border:0;
+border-radius:15px;
+background:linear-gradient(135deg,#ffe36a,#ffc400);
+color:#111;
+font-size:14px;
+font-weight:900;
+cursor:pointer;
+}
+
+.logout{
+width:100%;
+height:48px;
+margin-top:10px;
+border-radius:14px;
+border:1px solid rgba(239,68,68,.2);
+background:rgba(239,68,68,.06);
+color:#ff9b9b;
 font-weight:bold;
 cursor:pointer;
 }
 </style>
-
 </head>
+
 <body>
 
-<header>👤 My Profile</header>
+<div class="app">
 
-<div class="container">
+<header>
+<div class="header-row">
+
+<a class="back" href="dashboard.html">←</a>
+
+<div class="icon">👤</div>
+
+<div>
+<h1>My Profile</h1>
+<p>Arisudan Transport</p>
+</div>
+
+</div>
+</header>
+
+
+<div class="content">
 
 <div class="profile">
-<div class="avatar">A</div>
-<h2>Arisudan User</h2>
-<p>Customer Account</p>
+
+<div class="avatar" id="avatar">A</div>
+
+<h2 id="profileName">Arisudan User</h2>
+
+<p id="profileRole">Customer Account</p>
+
 </div>
+
+
+<div id="message" class="message"></div>
+
 
 <div class="card">
 
-<div class="row">
-<label>Full Name</label>
-<input id="name" value="Arisudan User">
+<div class="card-title">
+<div class="card-icon">👤</div>
+<h3>Personal Details</h3>
 </div>
 
-<div class="row">
-<label>Email</label>
-<input id="email" value="user@email.com">
+
+<div class="field">
+
+<label>FULL NAME</label>
+
+<div class="input-box">
+
+<span class="input-icon">👤</span>
+
+<input
+id="name"
+type="text"
+placeholder="Enter your name">
+
 </div>
 
-<div class="row">
-<label>Phone</label>
-<input id="phone" value="+91 9876543210">
 </div>
 
-<button onclick="saveProfile()">Save Changes</button>
+
+<div class="field">
+
+<label>MOBILE NUMBER</label>
+
+<div class="input-box">
+
+<span class="input-icon">📱</span>
+
+<input
+id="mobile"
+type="tel"
+disabled>
 
 </div>
 
 </div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-title">
+<div class="card-icon">🔐</div>
+<h3>Account Information</h3>
+</div>
+
+
+<div class="info-row">
+
+<span class="info-label">
+Account Type
+</span>
+
+<span
+class="badge"
+id="accountType">
+CUSTOMER
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<span class="info-label">
+Customer ID
+</span>
+
+<span
+class="info-value"
+id="userId">
+--
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<span class="info-label">
+Account Status
+</span>
+
+<span
+class="info-value"
+style="color:#86efac">
+● Active
+</span>
+
+</div>
+
+</div>
+
+
+<button
+class="save"
+onclick="saveProfile()">
+
+💾 SAVE CHANGES
+
+</button>
+
+
+<button
+class="logout"
+onclick="logout()">
+
+🚪 LOGOUT
+
+</button>
+
+</div>
+
+</div>
+
 
 <script>
-window.onload=function(){
-const profile=JSON.parse(localStorage.getItem("profile"));
-if(profile){
-document.getElementById("name").value=profile.name;
-document.getElementById("email").value=profile.email;
-document.getElementById("phone").value=profile.phone;
+
+function getSession(){
+
+let data =
+localStorage.getItem("arisudan_session");
+
+if(!data){
+data =
+sessionStorage.getItem("arisudan_session");
 }
+
+if(!data){
+return null;
 }
+
+try{
+return JSON.parse(data);
+}
+catch(e){
+return null;
+}
+
+}
+
+
+function loadProfile(){
+
+let session = getSession();
+
+if(!session){
+
+/*
+ Do NOT redirect automatically.
+ This prevents "Webpage not available"
+ if login.html is not created yet.
+*/
+
+document.getElementById("profileName")
+.textContent="Guest User";
+
+document.getElementById("profileRole")
+.textContent="Please login to view your account";
+
+document.getElementById("mobile").value="";
+
+return;
+
+}
+
+
+let name =
+session.name || "Arisudan User";
+
+let role =
+session.role || "customer";
+
+
+document.getElementById("profileName")
+.textContent=name;
+
+document.getElementById("name")
+.value=name;
+
+document.getElementById("mobile")
+.value=session.mobile || "";
+
+document.getElementById("avatar")
+.textContent=
+name.charAt(0).toUpperCase();
+
+document.getElementById("profileRole")
+.textContent=
+role==="driver"
+?"Driver Account"
+:"Customer Account";
+
+document.getElementById("accountType")
+.textContent=
+role.toUpperCase();
+
+document.getElementById("userId")
+.textContent=
+session.id || "--";
+
+}
+
+
+function showMessage(text,type){
+
+let box =
+document.getElementById("message");
+
+box.textContent=text;
+
+box.className=
+"message "+type;
+
+setTimeout(function(){
+
+box.className="message";
+
+},3000);
+
+}
+
 
 function saveProfile(){
-const profile={
-name:document.getElementById("name").value,
-email:document.getElementById("email").value,
-phone:document.getElementById("phone").value
-};
 
-localStorage.setItem("profile",JSON.stringify(profile));
-alert("Profile Saved Successfully");
+let session=getSession();
+
+if(!session){
+
+showMessage(
+"Please login before saving your profile.",
+"error"
+);
+
+return;
+
 }
+
+
+let name =
+document.getElementById("name")
+.value.trim();
+
+
+if(name.length<2){
+
+showMessage(
+"Please enter your full name.",
+"error"
+);
+
+return;
+
+}
+
+
+session.name=name;
+
+
+if(
+localStorage.getItem("arisudan_session")
+){
+
+localStorage.setItem(
+"arisudan_session",
+JSON.stringify(session)
+);
+
+}
+else{
+
+sessionStorage.setItem(
+"arisudan_session",
+JSON.stringify(session)
+);
+
+}
+
+
+/*
+Update registered user if available.
+*/
+
+let users =
+JSON.parse(
+localStorage.getItem("arisudan_users")
+) || [];
+
+
+users=users.map(function(user){
+
+if(
+session.id &&
+user.id===session.id
+){
+
+user.name=name;
+
+}
+
+return user;
+
+});
+
+
+localStorage.setItem(
+"arisudan_users",
+JSON.stringify(users)
+);
+
+
+document.getElementById("profileName")
+.textContent=name;
+
+document.getElementById("avatar")
+.textContent=
+name.charAt(0).toUpperCase();
+
+
+showMessage(
+"Profile saved successfully ✓",
+"success"
+);
+
+}
+
+
+function logout(){
+
+localStorage.removeItem(
+"arisudan_session"
+);
+
+sessionStorage.removeItem(
+"arisudan_session"
+);
+
+window.location.href="index.html";
+
+}
+
+
+loadProfile();
+
 </script>
 
 </body>
-</html>
+</html
