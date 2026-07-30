@@ -3,80 +3,957 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Dashboard</title>
+<meta name="theme-color" content="#07111f">
+<title>Admin | Arisudan Transport</title>
 
 <style>
-body{
+*{
+box-sizing:border-box;
 margin:0;
+padding:0;
 font-family:Arial,sans-serif;
-background:#111827;
+}
+
+body{
+background:#07111f;
 color:white;
+min-height:100vh;
 }
 
-header{
-background:#2563eb;
-padding:20px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
+.app{
+max-width:520px;
+margin:auto;
+min-height:100vh;
+padding-bottom:30px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
-padding:20px;
+.header{
+padding:18px;
+background:linear-gradient(145deg,#10253b,#07111f);
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.card{
-background:#1f2937;
-padding:20px;
+.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+}
+
+.logo{
+width:47px;
+height:47px;
 border-radius:15px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
+}
+
+.brand h1{
+font-size:17px;
+}
+
+.brand p{
+font-size:9px;
+color:#77869a;
+margin-top:4px;
+}
+
+.logout{
+border:0;
+background:#182638;
+color:#ffb0b0;
+border-radius:11px;
+padding:10px;
+font-size:9px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.content{
+padding:20px 18px;
+}
+
+.welcome small{
+color:#ffd43b;
+font-size:9px;
+font-weight:bold;
+}
+
+.welcome h2{
+font-size:24px;
+margin-top:6px;
+}
+
+.welcome p{
+color:#77869a;
+font-size:10px;
+margin-top:6px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-top:18px;
+}
+
+.stat{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:15px;
+padding:14px 5px;
 text-align:center;
 }
 
-.number{
-font-size:34px;
-color:#FFD700;
-font-weight:bold;
+.stat strong{
+display:block;
+font-size:20px;
+color:#ffd43b;
+}
+
+.stat span{
+display:block;
+font-size:7px;
+color:#68778a;
+margin-top:5px;
 }
 
 .title{
-margin-top:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:22px 2px 11px;
 }
-</style><link rel="stylesheet" href="style.css">
 
+.title h3{
+font-size:14px;
+}
+
+.title span{
+font-size:8px;
+color:#68778a;
+}
+
+.booking{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:20px;
+padding:16px;
+margin-bottom:12px;
+}
+
+.booking-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+}
+
+.booking-id{
+font-size:10px;
+font-weight:900;
+color:#ffd43b;
+}
+
+.status{
+font-size:8px;
+padding:6px 8px;
+border-radius:8px;
+background:rgba(255,212,59,.09);
+color:#ffd43b;
+font-weight:bold;
+}
+
+.route{
+margin-top:15px;
+font-size:10px;
+line-height:1.7;
+}
+
+.route span{
+color:#68778a;
+font-size:8px;
+}
+
+.details{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:12px;
+}
+
+.detail{
+background:#091625;
+border-radius:10px;
+padding:10px;
+}
+
+.detail span{
+display:block;
+font-size:7px;
+color:#68778a;
+margin-bottom:4px;
+}
+
+.detail strong{
+font-size:9px;
+}
+
+.assign{
+margin-top:13px;
+}
+
+select{
+width:100%;
+height:45px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:12px;
+background:#091625;
+color:white;
+padding:0 10px;
+outline:none;
+font-size:10px;
+}
+
+.assign-btn{
+width:100%;
+height:43px;
+margin-top:8px;
+border:0;
+border-radius:11px;
+background:#ffd43b;
+color:#111;
+font-size:10px;
+font-weight:900;
+cursor:pointer;
+}
+
+.assigned{
+font-size:8px;
+color:#86efac;
+margin-top:9px;
+}
+
+.empty{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:20px;
+padding:40px 18px;
+text-align:center;
+}
+
+.empty-icon{
+font-size:40px;
+margin-bottom:12px;
+}
+
+.empty h3{
+font-size:14px;
+}
+
+.empty p{
+font-size:9px;
+color:#68778a;
+margin-top:7px;
+line-height:1.5;
+}
+
+.message{
+display:none;
+padding:11px;
+border-radius:11px;
+margin-top:12px;
+font-size:10px;
+text-align:center;
+}
+
+.message.success{
+display:block;
+background:rgba(34,197,94,.08);
+color:#86efac;
+}
+
+.message.error{
+display:block;
+background:rgba(239,68,68,.08);
+color:#fca5a5;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-👨‍💼 Admin Dashboard
+<div class="app">
+
+<header class="header">
+
+<div class="top">
+
+<div class="brand">
+
+<div class="logo">🚛</div>
+
+<div>
+<h1>Arisudan Trucks</h1>
+<p>ADMIN CONTROL CENTER</p>
+</div>
+
+</div>
+
+<button class="logout" onclick="logout()">
+LOGOUT
+</button>
+
+</div>
+
 </header>
 
-<div class="grid">
 
-<div class="card">
-<div class="number">124</div>
-<div class="title">Bookings</div>
-</div>
+<main class="content">
 
-<div class="card">
-<div class="number">18</div>
-<div class="title">Drivers</div>
-</div>
+<div class="welcome">
 
-<div class="card">
-<div class="number">12</div>
-<div class="title">Vehicles</div>
-</div>
+<small>ADMIN PANEL</small>
 
-<div class="card">
-<div class="number">₹2.4L</div>
-<div class="title">Revenue</div>
-</div>
+<h2>Transport Control</h2>
+
+<p>
+Manage bookings and assign trips to drivers.
+</p>
 
 </div>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong id="total">0</strong>
+<span>BOOKINGS</span>
+</div>
+
+<div class="stat">
+<strong id="assigned">0</strong>
+<span>ASSIGNED</span>
+</div>
+
+<div class="stat">
+<strong id="pending">0</strong>
+<span>PENDING</span>
+</div>
+
+</div>
+
+
+<div id="message" class="message"></div>
+
+
+<div class="title">
+
+<h3>All Bookings</h3>
+
+<span>ADMIN ONLY</span>
+
+</div>
+
+
+<div id="bookingList"></div>
+
+</main>
+
+</div>
+
+
+<script>
+
+/*
+ADMIN LOGIN
+
+For now this simple admin panel uses
+a fixed local admin account.
+
+Mobile:
+9999999999
+
+Password:
+admin123
+
+Change these later when a real backend
+is connected.
+*/
+
+const ADMIN_MOBILE="9999999999";
+const ADMIN_PASSWORD="admin123";
+
+
+function getSession(){
+
+let data=
+localStorage.getItem("arisudan_session");
+
+if(!data){
+data=
+sessionStorage.getItem("arisudan_session");
+}
+
+if(!data)return null;
+
+try{
+return JSON.parse(data);
+}
+catch(e){
+return null;
+}
+
+}
+
+
+function safe(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function checkAdmin(){
+
+const session=getSession();
+
+if(
+!session ||
+session.role!=="admin"
+){
+
+showAdminLogin();
+
+return false;
+
+}
+
+return true;
+
+}
+
+
+function showAdminLogin(){
+
+document.getElementById(
+"bookingList"
+).innerHTML=`
+
+<div class="empty">
+
+<div class="empty-icon">🔐</div>
+
+<h3>Admin Login Required</h3>
+
+<p>
+This page is only for the Arisudan administrator.
+</p>
+
+<div style="margin-top:18px">
+
+<input
+id="adminMobile"
+type="tel"
+placeholder="Admin mobile"
+style="
+width:100%;
+height:45px;
+background:#091625;
+border:1px solid rgba(255,255,255,.07);
+border-radius:11px;
+color:white;
+padding:0 12px;
+outline:none;
+">
+
+<input
+id="adminPassword"
+type="password"
+placeholder="Admin password"
+style="
+width:100%;
+height:45px;
+margin-top:8px;
+background:#091625;
+border:1px solid rgba(255,255,255,.07);
+border-radius:11px;
+color:white;
+padding:0 12px;
+outline:none;
+">
+
+<button
+class="assign-btn"
+onclick="adminLogin()">
+
+LOGIN AS ADMIN
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function adminLogin(){
+
+const mobile=
+document.getElementById(
+"adminMobile"
+).value.trim();
+
+const password=
+document.getElementById(
+"adminPassword"
+).value;
+
+
+if(
+mobile!==ADMIN_MOBILE ||
+password!==ADMIN_PASSWORD
+){
+
+showMessage(
+"Incorrect admin mobile or password.",
+"error"
+);
+
+return;
+
+}
+
+
+const session={
+
+id:"ADMIN001",
+
+name:"Arisudan Admin",
+
+mobile:ADMIN_MOBILE,
+
+role:"admin",
+
+loginTime:new Date().toISOString()
+
+};
+
+
+localStorage.setItem(
+"arisudan_session",
+JSON.stringify(session)
+);
+
+
+showMessage(
+"Admin login successful ✓",
+"success"
+);
+
+
+setTimeout(function(){
+
+loadAdmin();
+
+},400);
+
+}
+
+
+function loadAdmin(){
+
+if(!checkAdmin())return;
+
+
+let bookings=
+JSON.parse(
+localStorage.getItem("bookings")
+) || [];
+
+
+let users=
+JSON.parse(
+localStorage.getItem("arisudan_users")
+) || [];
+
+
+/*
+Only registered drivers are shown.
+*/
+
+const drivers=
+users.filter(function(user){
+
+return user.role==="driver";
+
+});
+
+
+const total=
+bookings.length;
+
+
+const assigned=
+bookings.filter(function(b){
+
+return b.driverMobile;
+
+}).length;
+
+
+const pending=
+bookings.filter(function(b){
+
+return !b.driverMobile;
+
+}).length;
+
+
+document.getElementById(
+"total"
+).textContent=total;
+
+document.getElementById(
+"assigned"
+).textContent=assigned;
+
+document.getElementById(
+"pending"
+).textContent=pending;
+
+
+const list=
+document.getElementById(
+"bookingList"
+);
+
+
+if(bookings.length===0){
+
+list.innerHTML=`
+
+<div class="empty">
+
+<div class="empty-icon">📦</div>
+
+<h3>No bookings found</h3>
+
+<p>
+Customer bookings will appear here.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML=
+bookings
+.slice()
+.reverse()
+.map(function(b){
+
+let driverOptions=`
+
+<option value="">
+Select Driver
+</option>
+
+`;
+
+
+drivers.forEach(function(driver){
+
+const selected =
+String(driver.mobile)===
+String(b.driverMobile || "")
+?"selected"
+:"";
+
+
+driverOptions += `
+
+<option
+value="${safe(driver.mobile)}"
+${selected}>
+
+${safe(driver.name || "Driver")}
+ •
+${safe(driver.mobile)}
+
+</option>
+
+`;
+
+});
+
+
+return `
+
+<div class="booking">
+
+<div class="booking-top">
+
+<div class="booking-id">
+#${safe(b.id)}
+</div>
+
+<div class="status">
+${safe(b.status || "Booked")}
+</div>
+
+</div>
+
+
+<div class="route">
+
+<span>PICKUP</span><br>
+
+<strong>
+${safe(b.pickup || "-")}
+</strong>
+
+<br><br>
+
+<span>DROP</span><br>
+
+<strong>
+${safe(b.drop || "-")}
+</strong>
+
+</div>
+
+
+<div class="details">
+
+<div class="detail">
+
+<span>CUSTOMER</span>
+
+<strong>
+${safe(b.customerName || "Customer")}
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>MOBILE</span>
+
+<strong>
+${safe(b.customerMobile || "-")}
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>VEHICLE</span>
+
+<strong>
+${safe(b.vehicle || "-")}
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>FARE</span>
+
+<strong>
+₹${Number(
+b.total || 0
+).toLocaleString("en-IN")}
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="assign">
+
+<select id="driver-${safe(b.id)}">
+
+${driverOptions}
+
+</select>
+
+
+<button
+class="assign-btn"
+onclick="assignDriver('${safe(b.id)}')">
+
+🚚 ASSIGN TRIP TO DRIVER
+
+</button>
+
+
+${
+b.driverMobile
+?
+`<div class="assigned">
+✓ Assigned to driver: ${safe(b.driverMobile)}
+</div>`
+:
+""
+}
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function assignDriver(id){
+
+const select=
+document.getElementById(
+"driver-"+id
+);
+
+
+if(!select){
+return;
+}
+
+
+const driverMobile=
+select.value;
+
+
+if(!driverMobile){
+
+showMessage(
+"Please select a driver first.",
+"error"
+);
+
+return;
+
+}
+
+
+let bookings=
+JSON.parse(
+localStorage.getItem("bookings")
+) || [];
+
+
+bookings=
+bookings.map(function(booking){
+
+if(
+String(booking.id)===
+String(id)
+){
+
+booking.driverMobile=
+driverMobile;
+
+booking.assignedAt=
+new Date().toISOString();
+
+booking.status=
+booking.status || "Driver Assigned";
+
+}
+
+return booking;
+
+});
+
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+
+showMessage(
+"Trip assigned to driver successfully ✓",
+"success"
+);
+
+
+loadAdmin();
+
+}
+
+
+function showMessage(
+text,
+type
+){
+
+const message=
+document.getElementById(
+"message"
+);
+
+message.textContent=text;
+
+message.className=
+"message "+type;
+
+setTimeout(function(){
+
+message.className="message";
+
+},2500);
+
+}
+
+
+function logout(){
+
+localStorage.removeItem(
+"arisudan_session"
+);
+
+sessionStorage.removeItem(
+"arisudan_session"
+);
+
+window.location.href=
+"index.html";
+
+}
+
+
+loadAdmin();
+
+</script>
 
 </body>
 </html>
