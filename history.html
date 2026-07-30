@@ -1,77 +1,818 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Booking History</title>
+<meta name="theme-color" content="#07111f">
+
+<title>My Bookings | Arisudan Transport</title>
 
 <style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#111827;
-color:white;
-margin:0;
+  background:#07111f;
+  color:#fff;
+  min-height:100vh;
 }
-header{
-background:#FFD700;
-color:black;
-padding:20px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
+
+.app{
+  max-width:520px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:30px;
 }
-.container{
-padding:20px;
+
+/* HEADER */
+
+.header{
+  padding:18px;
+  background:linear-gradient(145deg,#0d2034,#07111f);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.card{
-background:#1f2937;
-padding:20px;
-margin-bottom:15px;
-border-radius:12px;
+
+.header-row{
+  display:flex;
+  align-items:center;
+  gap:13px;
 }
-.price{
-color:#22c55e;
-font-weight:bold;
-font-size:20px;
+
+.back{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#102033;
+  color:white;
+  text-decoration:none;
+  font-size:20px;
 }
+
+.header-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#ffe16a,#ffb900);
+  font-size:22px;
+}
+
+.header h1{
+  font-size:18px;
+}
+
+.header p{
+  color:#738196;
+  font-size:10px;
+  margin-top:3px;
+}
+
+/* CONTENT */
+
+.content{
+  padding:20px 18px;
+}
+
+.page-title{
+  margin-bottom:18px;
+}
+
+.page-title h2{
+  font-size:24px;
+}
+
+.page-title p{
+  color:#77869a;
+  font-size:12px;
+  margin-top:6px;
+}
+
+/* FILTER */
+
+.filter{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:3px;
+  margin-bottom:17px;
+}
+
+.filter button{
+  flex:none;
+  padding:9px 14px;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0e1c2d;
+  color:#8996a8;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.filter button.active{
+  color:#111;
+  background:#ffd43b;
+  border-color:#ffd43b;
+}
+
+/* BOOKING CARD */
+
+.booking{
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:21px;
+  padding:17px;
+  margin-bottom:13px;
+}
+
+.booking-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.booking-id{
+  color:#ffd43b;
+  font-size:13px;
+  font-weight:900;
+}
+
+.booking-date{
+  color:#667488;
+  font-size:9px;
+  margin-top:4px;
+}
+
 .status{
-color:#FFD700;
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:9px;
+  font-weight:bold;
+}
+
+.status-booked{
+  background:rgba(255,212,59,.10);
+  color:#ffd43b;
+}
+
+.status-assigned{
+  background:rgba(59,130,246,.10);
+  color:#93c5fd;
+}
+
+.status-transit{
+  background:rgba(168,85,247,.10);
+  color:#d8b4fe;
+}
+
+.status-delivered{
+  background:rgba(34,197,94,.10);
+  color:#86efac;
+}
+
+.status-cancelled{
+  background:rgba(239,68,68,.10);
+  color:#fca5a5;
+}
+
+/* ROUTE */
+
+.route{
+  margin-top:17px;
+  padding:14px;
+  border-radius:15px;
+  background:#091625;
+}
+
+.location{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#ffd43b;
+  margin-top:3px;
+  flex:none;
+}
+
+.dot.drop{
+  background:#ef4444;
+}
+
+.location-text{
+  min-width:0;
+}
+
+.location-label{
+  color:#667488;
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+.location-name{
+  margin-top:3px;
+  font-size:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.route-line{
+  width:2px;
+  height:18px;
+  background:#26374a;
+  margin:2px 0 2px 5px;
+}
+
+/* BOTTOM */
+
+.booking-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:15px;
+  padding-top:13px;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.vehicle{
+  color:#8b98a9;
+  font-size:10px;
+}
+
+.price{
+  color:#ffd43b;
+  font-size:16px;
+  font-weight:900;
+}
+
+/* ACTIONS */
+
+.actions{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
+}
+
+.action-btn{
+  flex:1;
+  height:38px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#101f31;
+  color:#b6c1cf;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.action-btn.track{
+  color:#ffd43b;
+}
+
+.action-btn.cancel{
+  color:#ff9b9b;
+}
+
+/* EMPTY */
+
+.empty{
+  padding:45px 20px;
+  text-align:center;
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+}
+
+.empty-icon{
+  width:65px;
+  height:65px;
+  border-radius:20px;
+  background:rgba(255,212,59,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  margin:0 auto 14px;
+}
+
+.empty h3{
+  font-size:16px;
+}
+
+.empty p{
+  color:#68778a;
+  font-size:11px;
+  line-height:1.5;
+  margin-top:6px;
+}
+
+.book-now{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 18px;
+  border-radius:12px;
+  background:#ffd43b;
+  color:#111;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
 }
 </style>
 </head>
 
 <body>
 
-<header>Booking History</header>
+<div class="app">
 
-<div id="history" class="container"></div>
+<header class="header">
+
+  <div class="header-row">
+
+    <a class="back" href="./dashboard.html">
+      ←
+    </a>
+
+    <div class="header-icon">
+      🧾
+    </div>
+
+    <div>
+      <h1>My Bookings</h1>
+      <p>Arisudan Transport</p>
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="content">
+
+  <div class="page-title">
+
+    <h2>Booking History</h2>
+
+    <p>
+      View and manage your transport bookings.
+    </p>
+
+  </div>
+
+
+  <div class="filter">
+
+    <button
+      class="active"
+      onclick="filterBookings('all',this)">
+      All
+    </button>
+
+    <button
+      onclick="filterBookings('Booked',this)">
+      Booked
+    </button>
+
+    <button
+      onclick="filterBookings('Driver Assigned',this)">
+      Assigned
+    </button>
+
+    <button
+      onclick="filterBookings('In Transit',this)">
+      Transit
+    </button>
+
+    <button
+      onclick="filterBookings('Delivered',this)">
+      Delivered
+    </button>
+
+  </div>
+
+
+  <div id="bookingList"></div>
+
+</main>
+
+</div>
+
 
 <script>
 
-const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+let currentFilter = "all";
 
-let html="";
 
-if(bookings.length===0){
-html="<h2>No Bookings Found</h2>";
+function getBookings(){
+
+  return JSON.parse(
+    localStorage.getItem("bookings")
+  ) || [];
+
 }
 
-bookings.forEach(b=>{
 
-html += `
-<div class="card">
-<h3>${b.id}</h3>
-<p><b>Pickup:</b> ${b.pickup}</p>
-<p><b>Drop:</b> ${b.drop}</p>
-<p><b>Vehicle:</b> ${b.vehicle}</p>
-<p class="price">₹${b.total}</p>
-<p class="status">Booked</p>
-</div>
-`;
+function getSession(){
 
-});
+  const local =
+    localStorage.getItem(
+      "arisudan_session"
+    );
 
-document.getElementById("history").innerHTML = html;
+  const temporary =
+    sessionStorage.getItem(
+      "arisudan_session"
+    );
+
+  return JSON.parse(
+    local || temporary || "null"
+  );
+
+}
+
+
+function getStatusClass(status){
+
+  if(status === "Driver Assigned"){
+    return "status-assigned";
+  }
+
+  if(
+    status === "In Transit" ||
+    status === "Picked Up"
+  ){
+    return "status-transit";
+  }
+
+  if(status === "Delivered"){
+    return "status-delivered";
+  }
+
+  if(status === "Cancelled"){
+    return "status-cancelled";
+  }
+
+  return "status-booked";
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function renderBookings(){
+
+  const container =
+    document.getElementById(
+      "bookingList"
+    );
+
+  let bookings = getBookings();
+
+  const session = getSession();
+
+
+  /*
+    Customer sees only their own bookings
+    when an account session exists.
+  */
+
+  if(
+    session &&
+    session.role === "customer" &&
+    session.mobile
+  ){
+
+    bookings =
+      bookings.filter(function(booking){
+
+        return (
+          booking.customerMobile ===
+          session.mobile
+        );
+
+      });
+
+  }
+
+
+  if(currentFilter !== "all"){
+
+    bookings =
+      bookings.filter(function(booking){
+
+        return booking.status ===
+          currentFilter;
+
+      });
+
+  }
+
+
+  bookings.reverse();
+
+
+  if(bookings.length === 0){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div class="empty-icon">
+          📦
+        </div>
+
+        <h3>No bookings found</h3>
+
+        <p>
+          Your transport bookings will appear
+          here after you make a booking.
+        </p>
+
+        <a
+          class="book-now"
+          href="./booking.html">
+
+          🚚 Book Vehicle
+
+        </a>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    bookings.map(function(booking){
+
+      const status =
+        booking.status || "Booked";
+
+
+      return `
+
+      <div class="booking">
+
+        <div class="booking-top">
+
+          <div>
+
+            <div class="booking-id">
+              ${escapeHTML(
+                booking.id || "AT Booking"
+              )}
+            </div>
+
+            <div class="booking-date">
+              ${escapeHTML(
+                booking.date || ""
+              )}
+            </div>
+
+          </div>
+
+          <div class="status ${getStatusClass(status)}">
+            ${escapeHTML(status)}
+          </div>
+
+        </div>
+
+
+        <div class="route">
+
+          <div class="location">
+
+            <div class="dot"></div>
+
+            <div class="location-text">
+
+              <div class="location-label">
+                Pickup
+              </div>
+
+              <div class="location-name">
+                ${escapeHTML(
+                  booking.pickup || "-"
+                )}
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="route-line"></div>
+
+
+          <div class="location">
+
+            <div class="dot drop"></div>
+
+            <div class="location-text">
+
+              <div class="location-label">
+                Drop
+              </div>
+
+              <div class="location-name">
+                ${escapeHTML(
+                  booking.drop || "-"
+                )}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="booking-bottom">
+
+          <div class="vehicle">
+            🚚 ${escapeHTML(
+              booking.vehicle || "Vehicle"
+            )}
+
+            ${
+              booking.distance
+              ? " • " +
+                escapeHTML(
+                  booking.distance
+                ) +
+                " KM"
+              : ""
+            }
+
+          </div>
+
+          <div class="price">
+            ₹${Number(
+              booking.total || 0
+            ).toLocaleString("en-IN")}
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="action-btn track"
+            onclick="trackBooking('${escapeHTML(
+              booking.id || ""
+            )}')">
+
+            📍 Track
+
+          </button>
+
+
+          ${
+            status !== "Delivered" &&
+            status !== "Cancelled"
+
+            ? `
+
+              <button
+                class="action-btn cancel"
+                onclick="cancelBooking('${escapeHTML(
+                  booking.id || ""
+                )}')">
+
+                Cancel
+
+              </button>
+
+            `
+
+            : ""
+
+          }
+
+        </div>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+function filterBookings(
+  filter,
+  button
+){
+
+  currentFilter = filter;
+
+
+  document
+    .querySelectorAll(".filter button")
+    .forEach(function(item){
+
+      item.classList.remove("active");
+
+    });
+
+
+  button.classList.add("active");
+
+
+  renderBookings();
+
+}
+
+
+function trackBooking(id){
+
+  localStorage.setItem(
+    "selectedBookingId",
+    id
+  );
+
+  location.href =
+    "./track.html";
+
+}
+
+
+function cancelBooking(id){
+
+  const confirmCancel =
+    confirm(
+      "Are you sure you want to cancel this booking?"
+    );
+
+
+  if(!confirmCancel){
+    return;
+  }
+
+
+  let bookings = getBookings();
+
+
+  bookings =
+    bookings.map(function(booking){
+
+      if(booking.id === id){
+
+        booking.status =
+          "Cancelled";
+
+        booking.cancelledAt =
+          new Date().toISOString();
+
+      }
+
+      return booking;
+
+    });
+
+
+  localStorage.setItem(
+    "bookings",
+    JSON.stringify(bookings)
+  );
+
+
+  renderBookings();
+
+}
+
+
+renderBookings();
 
 </script>
 
