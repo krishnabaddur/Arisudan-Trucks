@@ -18,47 +18,47 @@ font-family:Arial,sans-serif;
 body{
 min-height:100vh;
 background:
-radial-gradient(circle at 20% 10%,rgba(255,212,59,.12),transparent 30%),
-linear-gradient(145deg,#07111f,#0b1727);
-color:#fff;
+radial-gradient(circle at top,#173452 0,#07111f 45%,#030912 100%);
+color:white;
 display:flex;
 align-items:center;
 justify-content:center;
 padding:20px;
 }
 
-.app{
+.login{
 width:100%;
 max-width:420px;
 }
 
 .logo{
+width:78px;
+height:78px;
+margin:0 auto 15px;
+border-radius:25px;
+background:linear-gradient(145deg,#ffe66b,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:39px;
+box-shadow:0 15px 35px rgba(255,196,0,.18);
+}
+
+.brand{
 text-align:center;
 margin-bottom:25px;
 }
 
-.logo-box{
-width:75px;
-height:75px;
-margin:auto;
-border-radius:25px;
-background:linear-gradient(145deg,#ffe36a,#ffc400);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:38px;
-box-shadow:0 18px 45px rgba(255,196,0,.15);
+.brand h1{
+font-size:27px;
+color:#ffd43b;
 }
 
-.logo h1{
-font-size:25px;
-margin-top:13px;
-}
-
-.logo p{
-color:#77869a;
-font-size:11px;
-margin-top:5px;
+.brand p{
+font-size:10px;
+color:#7c8da2;
+margin-top:6px;
+letter-spacing:1px;
 }
 
 .card{
@@ -69,253 +69,209 @@ padding:22px;
 box-shadow:0 25px 60px rgba(0,0,0,.3);
 }
 
-.card-title{
-margin-bottom:20px;
-}
-
-.card-title h2{
-font-size:21px;
-}
-
-.card-title p{
-color:#748298;
-font-size:11px;
-margin-top:6px;
-}
-
-.role-box{
+.tabs{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-bottom:18px;
+grid-template-columns:repeat(3,1fr);
+gap:6px;
+background:#091625;
+padding:5px;
+border-radius:14px;
+margin-bottom:22px;
 }
 
-.role{
-height:45px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,.07);
-background:#091625;
-color:#8290a3;
+.tab{
+border:0;
+background:transparent;
+color:#718096;
+height:40px;
+border-radius:10px;
+font-size:9px;
 font-weight:bold;
-font-size:11px;
 cursor:pointer;
 }
 
-.role.active{
+.tab.active{
 background:#ffd43b;
 color:#111;
-border-color:#ffd43b;
-}
-
-.field{
-margin-bottom:15px;
 }
 
 label{
 display:block;
-color:#8997aa;
 font-size:9px;
 font-weight:bold;
-margin-bottom:7px;
+color:#8795a8;
+margin:13px 0 7px;
 }
 
-.input-wrap{
-position:relative;
-}
-
-.input-icon{
-position:absolute;
-left:13px;
-top:50%;
-transform:translateY(-50%);
-font-size:16px;
-}
-
-input{
+.input{
 width:100%;
-height:52px;
-border-radius:13px;
-border:1px solid rgba(255,255,255,.07);
+height:51px;
 background:#091625;
+border:1px solid rgba(255,255,255,.07);
+border-radius:13px;
 color:white;
-padding:0 42px 0 40px;
+padding:0 14px;
 outline:none;
-font-size:13px;
+font-size:12px;
 }
 
-input:focus{
+.input:focus{
 border-color:#ffd43b;
 box-shadow:0 0 0 3px rgba(255,212,59,.06);
-}
-
-.password-btn{
-position:absolute;
-right:10px;
-top:50%;
-transform:translateY(-50%);
-background:none;
-border:0;
-color:#7e8da0;
-font-size:17px;
-cursor:pointer;
 }
 
 .login-btn{
 width:100%;
 height:53px;
-margin-top:5px;
+margin-top:20px;
 border:0;
 border-radius:15px;
 background:linear-gradient(135deg,#ffe36a,#ffc400);
 color:#111;
-font-size:14px;
+font-size:13px;
 font-weight:900;
 cursor:pointer;
 }
 
-.login-btn:active{
-transform:scale(.98);
+.remember{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:13px;
+color:#718096;
+font-size:9px;
 }
 
-.message{
+.remember input{
+accent-color:#ffd43b;
+}
+
+.error{
 display:none;
-padding:12px;
-border-radius:12px;
-margin-bottom:14px;
-font-size:11px;
-text-align:center;
-}
-
-.message.error{
-display:block;
 background:rgba(239,68,68,.08);
 color:#fca5a5;
-}
-
-.message.success{
-display:block;
-background:rgba(34,197,94,.08);
-color:#86efac;
+border-radius:11px;
+padding:11px;
+margin-top:12px;
+text-align:center;
+font-size:10px;
 }
 
 .demo{
-margin-top:15px;
+margin-top:18px;
 padding:12px;
-border-radius:13px;
 background:#091625;
-color:#69788b;
-font-size:9px;
-line-height:1.5;
+border-radius:12px;
+font-size:8px;
+color:#657489;
+line-height:1.6;
 text-align:center;
+}
+
+.demo b{
+color:#ffd43b;
 }
 
 .footer{
 text-align:center;
-color:#526175;
-font-size:9px;
-margin-top:17px;
+font-size:8px;
+color:#536276;
+margin-top:18px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="login">
 
 <div class="logo">
-
-<div class="logo-box">
 🚛
 </div>
 
+<div class="brand">
+
 <h1>Arisudan Trucks</h1>
 
-<p>Book • Track • Deliver</p>
+<p>BOOK • TRACK • DELIVER</p>
 
 </div>
 
 
 <div class="card">
 
-<div class="card-title">
-
-<h2>Welcome Back 👋</h2>
-
-<p>Login to manage your transport trips.</p>
-
-</div>
-
-
-<div class="role-box">
+<div class="tabs">
 
 <button
-class="role active"
-id="customerRole"
+class="tab active"
+id="customerTab"
 onclick="selectRole('customer')">
-
-👤 Customer
-
+CUSTOMER
 </button>
 
 <button
-class="role"
-id="driverRole"
+class="tab"
+id="driverTab"
 onclick="selectRole('driver')">
+DRIVER
+</button>
 
-🚚 Driver
-
+<button
+class="tab"
+id="adminTab"
+onclick="selectRole('admin')">
+ADMIN
 </button>
 
 </div>
 
 
-<div id="message" class="message"></div>
-
-
-<div class="field">
-
-<label>MOBILE NUMBER</label>
-
-<div class="input-wrap">
-
-<span class="input-icon">📱</span>
+<label id="mobileLabel">
+MOBILE NUMBER
+</label>
 
 <input
+class="input"
 id="mobile"
 type="tel"
 inputmode="numeric"
-maxlength="10"
-placeholder="Enter 10 digit mobile number">
-
-</div>
-
-</div>
+placeholder="Enter mobile number"
+autocomplete="username">
 
 
-<div class="field">
-
-<label>PASSWORD</label>
-
-<div class="input-wrap">
-
-<span class="input-icon">🔐</span>
+<label>
+PASSWORD
+</label>
 
 <input
+class="input"
 id="password"
 type="password"
-placeholder="Enter your password">
+placeholder="Enter password"
+autocomplete="current-password">
 
-<button
-class="password-btn"
-onclick="togglePassword()"
-type="button">
 
-👁️
+<div class="remember">
 
-</button>
+<input
+type="checkbox"
+id="remember"
+checked>
+
+<label
+for="remember"
+style="margin:0;color:#718096;font-size:9px;font-weight:normal">
+
+Remember my login
+
+</label>
 
 </div>
 
+
+<div
+id="error"
+class="error">
 </div>
 
 
@@ -323,14 +279,16 @@ type="button">
 class="login-btn"
 onclick="login()">
 
-LOGIN TO ACCOUNT →
+LOGIN →
 
 </button>
 
 
 <div class="demo">
 
-No OTP required • Login using your registered mobile number and password.
+Customer and Driver accounts are created by Admin.<br>
+
+<b>No OTP • No Register page</b>
 
 </div>
 
@@ -338,7 +296,7 @@ No OTP required • Login using your registered mobile number and password.
 
 
 <div class="footer">
-Arisudan Transport • Secure Account
+© Arisudan Transport • Secure Transport Management
 </div>
 
 </div>
@@ -355,189 +313,298 @@ selectedRole=role;
 
 
 document
-.getElementById("customerRole")
-.classList.remove("active");
+.querySelectorAll(".tab")
+.forEach(function(tab){
 
-document
-.getElementById("driverRole")
-.classList.remove("active");
-
-
-if(role==="customer"){
-
-document
-.getElementById("customerRole")
-.classList.add("active");
-
-}
-else{
-
-document
-.getElementById("driverRole")
-.classList.add("active");
-
-}
-
-}
-
-
-function togglePassword(){
-
-const password=
-document.getElementById("password");
-
-
-if(password.type==="password"){
-
-password.type="text";
-
-}
-else{
-
-password.type="password";
-
-}
-
-}
-
-
-function showMessage(text,type){
-
-const message=
-document.getElementById("message");
-
-message.textContent=text;
-
-message.className=
-"message "+type;
-
-}
-
-
-function login(){
-
-const mobile=
-document.getElementById("mobile")
-.value.trim();
-
-const password=
-document.getElementById("password")
-.value;
-
-
-if(!/^[0-9]{10}$/.test(mobile)){
-
-showMessage(
-"Enter a valid 10 digit mobile number.",
-"error"
-);
-
-return;
-
-}
-
-
-if(password.length<1){
-
-showMessage(
-"Enter your password.",
-"error"
-);
-
-return;
-
-}
-
-
-/*
-Get registered users.
-*/
-
-const users=
-JSON.parse(
-localStorage.getItem("arisudan_users")
-) || [];
-
-
-/*
-Find matching account.
-*/
-
-const user=
-users.find(function(item){
-
-return (
-String(item.mobile)===String(mobile) &&
-item.password===password &&
-(item.role || "customer")===selectedRole
-);
+tab.classList.remove("active");
 
 });
 
 
-if(!user){
+document
+.getElementById(role+"Tab")
+.classList.add("active");
 
-showMessage(
-"Incorrect mobile number, password or account type.",
-"error"
-);
 
-return;
+const mobile=
+document.getElementById("mobile");
+
+
+if(role==="admin"){
+
+mobile.placeholder=
+"Admin mobile number";
+
+}else if(role==="driver"){
+
+mobile.placeholder=
+"Driver mobile number";
+
+}else{
+
+mobile.placeholder=
+"Customer mobile number";
+
+}
 
 }
 
 
-/*
-Create login session.
-*/
+function showError(message){
+
+const error=
+document.getElementById("error");
+
+error.textContent=message;
+
+error.style.display="block";
+
+}
+
+
+function hideError(){
+
+document.getElementById(
+"error"
+).style.display="none";
+
+}
+
+
+function saveSession(user){
 
 const session={
-
 id:user.id,
-
 name:user.name,
-
 mobile:user.mobile,
-
-role:user.role || "customer",
-
+role:user.role,
 loginTime:new Date().toISOString()
-
 };
 
+
+if(
+document.getElementById(
+"remember"
+).checked
+){
 
 localStorage.setItem(
 "arisudan_session",
 JSON.stringify(session)
 );
 
-
-showMessage(
-"Login successful ✓",
-"success"
+sessionStorage.removeItem(
+"arisudan_session"
 );
+
+}else{
+
+sessionStorage.setItem(
+"arisudan_session",
+JSON.stringify(session)
+);
+
+localStorage.removeItem(
+"arisudan_session"
+);
+
+}
+
+}
+
+
+function login(){
+
+hideError();
+
+
+const mobile=
+document.getElementById(
+"mobile"
+).value.trim();
+
+
+const password=
+document.getElementById(
+"password"
+).value;
+
+
+if(!mobile){
+
+showError(
+"Please enter your mobile number."
+);
+
+return;
+
+}
+
+
+if(!password){
+
+showError(
+"Please enter your password."
+);
+
+return;
+
+}
 
 
 /*
-Go to correct dashboard.
+ADMIN ACCOUNT
 */
 
-setTimeout(function(){
+if(selectedRole==="admin"){
+
+if(
+mobile==="9999999999" &&
+password==="admin123"
+){
+
+const admin={
+
+id:"ADMIN001",
+
+name:"Arisudan Admin",
+
+mobile:mobile,
+
+password:password,
+
+role:"admin"
+
+};
+
+
+saveSession(admin);
+
+window.location.href=
+"admin.html";
+
+return;
+
+}
+
+showError(
+"Incorrect admin mobile or password."
+);
+
+return;
+
+}
+
+
+/*
+CUSTOMER / DRIVER ACCOUNTS
+*/
+
+const users=
+JSON.parse(
+localStorage.getItem(
+"arisudan_users"
+)
+) || [];
+
+
+const user=
+users.find(function(item){
+
+return String(item.mobile)===
+String(mobile) &&
+
+item.password===password &&
+
+item.role===selectedRole;
+
+});
+
+
+if(!user){
+
+showError(
+"Invalid mobile number or password."
+);
+
+return;
+
+}
+
+
+saveSession(user);
+
 
 if(selectedRole==="driver"){
 
-window.location.href="driver.html";
+window.location.href=
+"driver.html";
+
+}else{
+
+window.location.href=
+"dashboard.html";
 
 }
-else{
-
-window.location.href="dashboard.html";
 
 }
 
-},500);
+
+document
+.getElementById("password")
+.addEventListener(
+"keydown",
+function(event){
+
+if(event.key==="Enter"){
+login();
+}
+
+});
+
+
+/*
+If already logged in,
+open the correct dashboard.
+*/
+
+(function(){
+
+const data=
+localStorage.getItem(
+"arisudan_session"
+) ||
+sessionStorage.getItem(
+"arisudan_session"
+);
+
+if(!data)return;
+
+try{
+
+const session=
+JSON.parse(data);
+
+if(session.role==="admin"){
+
+window.location.href=
+"admin.html";
+
+}else if(session.role==="driver"){
+
+window.location.href=
+"driver.html";
+
+}else if(session.role==="customer"){
+
+window.location.href=
+"dashboard.html";
 
 }
+
+}catch(e){}
+
+})();
 
 </script>
 
