@@ -2,103 +2,656 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Register - Arisudan Trucks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+
+<title>Create Account | Arisudan Transport</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-background:#111827;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,212,59,.12),transparent 30%),
+    radial-gradient(circle at 90% 90%,rgba(239,68,68,.10),transparent 30%),
+    #07111f;
+  color:#fff;
+}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px 15px;
 }
 
 .card{
-width:90%;
-max-width:400px;
-background:#1f2937;
-padding:25px;
-border-radius:15px;
+  width:100%;
+  max-width:440px;
+  background:rgba(15,27,43,.94);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:25px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
 }
 
-h2{
-text-align:center;
-color:#FFD700;
-margin-bottom:20px;
+.logo{
+  width:72px;
+  height:72px;
+  margin:auto;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  background:linear-gradient(145deg,#ffe16a,#ffb900);
+  box-shadow:0 15px 35px rgba(255,193,7,.18);
 }
 
-input,select{
-width:100%;
-padding:15px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-font-size:16px;
+h1{
+  text-align:center;
+  margin-top:15px;
+  font-size:25px;
 }
 
-button{
-width:100%;
-padding:15px;
-background:#FFD700;
-color:#000;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
+h1 span{
+  color:#ffd43b;
 }
 
-a{
-color:#FFD700;
-text-decoration:none;
+.subtitle{
+  text-align:center;
+  color:#8492a5;
+  font-size:12px;
+  margin-top:6px;
 }
 
-p{
-margin-top:15px;
-text-align:center;
-color:white;
+.section-title{
+  margin:24px 0 15px;
+  color:#ffd43b;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.role-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.role{
+  padding:14px;
+  text-align:center;
+  border-radius:15px;
+  background:#0b1828;
+  border:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+}
+
+.role.active{
+  border-color:#ffd43b;
+  background:rgba(255,212,59,.09);
+}
+
+.role-icon{
+  display:block;
+  font-size:25px;
+  margin-bottom:6px;
+}
+
+.role-name{
+  font-size:12px;
+  font-weight:bold;
+  color:#aab5c3;
+}
+
+.role.active .role-name{
+  color:#ffd43b;
+}
+
+.field{
+  margin-top:15px;
+}
+
+label{
+  display:block;
+  color:#aab5c3;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.input-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.7;
+}
+
+input{
+  width:100%;
+  height:52px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#091625;
+  color:#fff;
+  padding:0 15px 0 43px;
+  outline:none;
+  font-size:14px;
+}
+
+input:focus{
+  border-color:#ffd43b;
+  box-shadow:0 0 0 3px rgba(255,212,59,.08);
+}
+
+.password-wrap{
+  position:relative;
+}
+
+.password-wrap input{
+  padding-right:50px;
+}
+
+.eye{
+  position:absolute;
+  right:5px;
+  top:5px;
+  width:42px;
+  height:42px;
+  background:transparent;
+  color:#8794a6;
+  border:0;
+  cursor:pointer;
+}
+
+.submit{
+  width:100%;
+  height:55px;
+  margin-top:22px;
+  border:0;
+  border-radius:16px;
+  background:linear-gradient(135deg,#ffe16a,#ffc400);
+  color:#111;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(255,196,0,.16);
+}
+
+.submit:active{
+  transform:scale(.98);
+}
+
+.message{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  font-size:12px;
+}
+
+.message.error{
+  display:block;
+  color:#ffb4b4;
+  background:rgba(239,68,68,.08);
+}
+
+.message.success{
+  display:block;
+  color:#a7f3b8;
+  background:rgba(34,197,94,.08);
+}
+
+.bottom{
+  text-align:center;
+  margin-top:20px;
+  color:#788698;
+  font-size:12px;
+}
+
+.bottom a{
+  color:#ffd43b;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:17px;
+  color:#647386;
+  text-decoration:none;
+  font-size:11px;
+}
+
+.back:hover{
+  color:#ffd43b;
 }
 </style>
-
 </head>
 
 <body>
 
+<div class="page">
+
 <div class="card">
 
-<h2>Create Account</h2>
+  <div class="logo">🚛</div>
 
-<input type="text" placeholder="Full Name">
+  <h1>
+    ARISUDAN <span>TRANSPORT</span>
+  </h1>
 
-<input type="email" placeholder="Email">
+  <p class="subtitle">
+    Create your transport account
+  </p>
 
-<input type="tel" placeholder="Mobile Number">
 
-<input type="password" placeholder="Password">
+  <div class="section-title">
+    ACCOUNT TYPE
+  </div>
 
-<select>
-<option>Customer</option>
-<option>Driver</option>
-</select>
 
-<button onclick="location.href='dashboard.html'">
-Create Account
-</button>
+  <div class="role-grid">
 
-<p>
-Already have an account?
-<a href="login.html">Login</a>
-</p>
+    <div
+      class="role active"
+      data-role="customer"
+      onclick="selectRole('customer')">
+
+      <span class="role-icon">📦</span>
+      <span class="role-name">Customer</span>
+
+    </div>
+
+    <div
+      class="role"
+      data-role="driver"
+      onclick="selectRole('driver')">
+
+      <span class="role-icon">🚚</span>
+      <span class="role-name">Driver</span>
+
+    </div>
+
+  </div>
+
+
+  <form id="registerForm">
+
+    <div class="field">
+
+      <label>FULL NAME</label>
+
+      <div class="input-wrap">
+
+        <span class="input-icon">👤</span>
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required>
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>MOBILE NUMBER</label>
+
+      <div class="input-wrap">
+
+        <span class="input-icon">📱</span>
+
+        <input
+          id="mobile"
+          type="tel"
+          inputmode="numeric"
+          maxlength="10"
+          placeholder="10-digit mobile number"
+          autocomplete="tel"
+          required>
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>PASSWORD</label>
+
+      <div class="password-wrap">
+
+        <input
+          id="password"
+          type="password"
+          minlength="4"
+          placeholder="Create a password"
+          autocomplete="new-password"
+          required>
+
+        <button
+          type="button"
+          class="eye"
+          id="eye1"
+          onclick="togglePassword('password','eye1')">
+
+          👁️
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>CONFIRM PASSWORD</label>
+
+      <div class="password-wrap">
+
+        <input
+          id="confirmPassword"
+          type="password"
+          minlength="4"
+          placeholder="Enter password again"
+          autocomplete="new-password"
+          required>
+
+        <button
+          type="button"
+          class="eye"
+          id="eye2"
+          onclick="togglePassword('confirmPassword','eye2')">
+
+          👁️
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="message" class="message"></div>
+
+
+    <button
+      type="submit"
+      class="submit">
+
+      ✨ CREATE ACCOUNT
+
+    </button>
+
+  </form>
+
+
+  <div class="bottom">
+
+    Already have an account?
+
+    <a href="./login.html">
+      Login
+    </a>
+
+  </div>
+
+
+  <a
+    href="./index.html"
+    class="back">
+
+    ← Back to Home
+
+  </a>
 
 </div>
+
+</div>
+
+
+<script>
+
+let selectedRole = "customer";
+
+
+function selectRole(role){
+
+  selectedRole = role;
+
+  document
+    .querySelectorAll(".role")
+    .forEach(function(item){
+
+      item.classList.remove("active");
+
+    });
+
+
+  document
+    .querySelector(
+      '.role[data-role="' + role + '"]'
+    )
+    .classList.add("active");
+
+}
+
+
+function togglePassword(id,eyeId){
+
+  const input =
+    document.getElementById(id);
+
+  const eye =
+    document.getElementById(eyeId);
+
+
+  if(input.type === "password"){
+
+    input.type = "text";
+    eye.textContent = "🙈";
+
+  }else{
+
+    input.type = "password";
+    eye.textContent = "👁️";
+
+  }
+
+}
+
+
+function showMessage(text,type){
+
+  const message =
+    document.getElementById("message");
+
+  message.textContent = text;
+
+  message.className =
+    "message " + type;
+
+}
+
+
+document
+  .getElementById("mobile")
+  .addEventListener("input",function(){
+
+    this.value =
+      this.value
+      .replace(/\D/g,"")
+      .slice(0,10);
+
+  });
+
+
+document
+  .getElementById("registerForm")
+  .addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+
+    const name =
+      document.getElementById("name")
+      .value.trim();
+
+
+    const mobile =
+      document.getElementById("mobile")
+      .value.trim();
+
+
+    const password =
+      document.getElementById("password")
+      .value;
+
+
+    const confirmPassword =
+      document.getElementById("confirmPassword")
+      .value;
+
+
+    if(name.length < 2){
+
+      showMessage(
+        "Please enter your full name.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(mobile.length !== 10){
+
+      showMessage(
+        "Please enter a valid 10-digit mobile number.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(password.length < 4){
+
+      showMessage(
+        "Password must contain at least 4 characters.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(password !== confirmPassword){
+
+      showMessage(
+        "Passwords do not match.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    let users =
+      JSON.parse(
+        localStorage.getItem("arisudan_users")
+      ) || [];
+
+
+    const alreadyExists =
+      users.some(function(user){
+
+        return(
+          user.mobile === mobile &&
+          user.role === selectedRole
+        );
+
+      });
+
+
+    if(alreadyExists){
+
+      showMessage(
+        "This mobile number is already registered.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const user = {
+
+      id:"AT" + Date.now(),
+
+      name:name,
+
+      mobile:mobile,
+
+      password:password,
+
+      role:selectedRole,
+
+      createdAt:new Date().toISOString()
+
+    };
+
+
+    users.push(user);
+
+
+    localStorage.setItem(
+      "arisudan_users",
+      JSON.stringify(users)
+    );
+
+
+    showMessage(
+      "Account created successfully! Opening login...",
+      "success"
+    );
+
+
+    setTimeout(function(){
+
+      location.href =
+        "./login.html";
+
+    },900);
+
+  });
+
+</script>
 
 </body>
 </html>
