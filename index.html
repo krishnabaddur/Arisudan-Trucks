@@ -3,106 +3,527 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arisudan Trucks</title>
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="Arisudan Transport - Book, Track and Manage Goods Transport">
+<title>Arisudan Transport</title>
 
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="./manifest.json">
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --gold:#ffd43b;
+  --gold2:#ffb703;
+  --navy:#07111f;
+  --navy2:#0d1b2a;
+  --card:rgba(255,255,255,.08);
+  --text:#ffffff;
+  --muted:#aeb9c8;
 }
 
 body{
-background:#0f172a;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top right,#17304d 0%,transparent 35%),
+    radial-gradient(circle at bottom left,#162b42 0%,transparent 35%),
+    var(--navy);
 }
 
-.container{
-width:90%;
-max-width:420px;
-text-align:center;
+.page{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  margin:auto;
+  padding:20px 18px 30px;
 }
 
-.logo{
-font-size:60px;
-margin-bottom:10px;
+/* HEADER */
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:35px;
 }
 
-h1{
-font-size:36px;
-color:#FFD700;
-margin-bottom:10px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-p{
-margin-bottom:30px;
-color:#ddd;
+.brand-icon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  font-size:25px;
+  box-shadow:0 8px 25px rgba(255,193,7,.2);
 }
 
-button{
-width:100%;
-padding:16px;
-margin:10px 0;
-border:none;
-border-radius:12px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
+.brand-name{
+  font-size:18px;
+  font-weight:800;
 }
 
-.customer{
-background:#FFD700;
-color:#000;
+.brand-sub{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
 }
 
-.driver{
-background:#16a34a;
-color:#fff;
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:5px 5px 25px;
 }
 
-.admin{
-background:#2563eb;
-color:#fff;
+.hero-truck{
+  width:105px;
+  height:105px;
+  margin:0 auto 20px;
+  border-radius:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:62px;
+  background:
+    linear-gradient(145deg,rgba(255,212,59,.20),rgba(255,183,3,.05));
+  border:1px solid rgba(255,212,59,.25);
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.hero h1{
+  font-size:35px;
+  line-height:1.1;
+  margin-bottom:12px;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:15px;
+  max-width:400px;
+  margin:auto;
+}
+
+/* STATUS */
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 15px;
+  margin:10px 0 25px;
+  border-radius:16px;
+  background:rgba(34,197,94,.10);
+  border:1px solid rgba(34,197,94,.18);
+  color:#c9f7d5;
+  font-size:13px;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  background:#22c55e;
+  border-radius:50%;
+  box-shadow:0 0 12px #22c55e;
+}
+
+/* PORTAL TITLE */
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin:10px 2px 13px;
+}
+
+.section-title h2{
+  font-size:18px;
+}
+
+.section-title span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* PORTAL CARDS */
+
+.portal{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  width:100%;
+  padding:17px;
+  margin:12px 0;
+  color:white;
+  text-align:left;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:var(--card);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  transition:.2s ease;
+}
+
+.portal:active{
+  transform:scale(.98);
+}
+
+.portal-icon{
+  width:55px;
+  height:55px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:17px;
+  font-size:27px;
+}
+
+.customer .portal-icon{
+  background:rgba(255,212,59,.15);
+}
+
+.driver .portal-icon{
+  background:rgba(34,197,94,.15);
+}
+
+.admin .portal-icon{
+  background:rgba(59,130,246,.15);
+}
+
+.portal-content{
+  flex:1;
+}
+
+.portal-content h3{
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.portal-content p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.arrow{
+  font-size:23px;
+  color:#8793a3;
+}
+
+/* FEATURES */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.feature{
+  padding:17px 14px;
+  border-radius:18px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.feature-icon{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.feature h4{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.4;
+}
+
+/* CONTACT */
+
+.contact{
+  margin-top:22px;
+  padding:18px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,212,59,.13),
+    rgba(255,255,255,.04)
+  );
+  border:1px solid rgba(255,212,59,.15);
+}
+
+.contact h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.contact p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.contact-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.contact-btn{
+  flex:1;
+  padding:12px;
+  text-align:center;
+  text-decoration:none;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.call{
+  background:var(--gold);
+  color:#111;
+}
+
+.whatsapp{
+  background:#22c55e;
+  color:white;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  color:#697586;
+  font-size:11px;
+  padding:25px 0 5px;
+}
+
+@media(max-width:360px){
+  .hero h1{
+    font-size:30px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
-<div class="logo">🚛</div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">🚛</div>
 
-<h1>Arisudan Trucks</h1>
+      <div>
+        <div class="brand-name">Arisudan Transport</div>
+        <div class="brand-sub">Goods • Parcel • Transport</div>
+      </div>
+    </div>
+  </header>
 
-<p>Book • Track • Deliver</p>
 
-<button class="customer" onclick="location.href='login.html'">
-Customer Login
-</button>
+  <main>
 
-<button class="driver" onclick="location.href='login.html'">
-Driver Login
-</button>
+    <section class="hero">
 
-<button class="admin" onclick="location.href='login.html'">
-Admin Login
-</button>
+      <div class="hero-truck">
+        🚛
+      </div>
+
+      <h1>
+        Move Anything.<br>
+        <span>Anywhere.</span>
+      </h1>
+
+      <p>
+        Reliable goods transport made simple.
+        Book your vehicle, manage your trip and
+        track your delivery in one place.
+      </p>
+
+    </section>
+
+
+    <div class="status">
+      <span class="status-dot"></span>
+      Arisudan Transport is ready to serve you
+    </div>
+
+
+    <div class="section-title">
+      <h2>Choose your portal</h2>
+      <span>Secure access</span>
+    </div>
+
+
+    <!-- CUSTOMER -->
+
+    <a class="portal customer" href="login.html?role=customer">
+
+      <div class="portal-icon">
+        📦
+      </div>
+
+      <div class="portal-content">
+        <h3>Customer Portal</h3>
+        <p>Book vehicles, track trips & view history</p>
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </a>
+
+
+    <!-- DRIVER -->
+
+    <a class="portal driver" href="login.html?role=driver">
+
+      <div class="portal-icon">
+        🚚
+      </div>
+
+      <div class="portal-content">
+        <h3>Driver Portal</h3>
+        <p>View your assigned trips & update status</p>
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </a>
+
+
+    <!-- ADMIN -->
+
+    <a class="portal admin" href="login.html?role=admin">
+
+      <div class="portal-icon">
+        🛡️
+      </div>
+
+      <div class="portal-content">
+        <h3>Admin Portal</h3>
+        <p>Manage bookings, drivers & customers</p>
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </a>
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">📍</div>
+        <h4>Trip Tracking</h4>
+        <p>Follow your booking status from pickup to delivery.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h4>Quick Booking</h4>
+        <p>Book the right vehicle with a simple process.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🔐</div>
+        <h4>Private Accounts</h4>
+        <p>Your account and bookings stay separated by role.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h4>Fare Estimate</h4>
+        <p>See an estimated transport fare before booking.</p>
+      </div>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="contact">
+
+      <h3>Need transport assistance?</h3>
+
+      <p>
+        Contact Arisudan Transport for goods,
+        parcel and vehicle booking support.
+      </p>
+
+      <div class="contact-buttons">
+
+        <a class="contact-btn call" href="tel:+919742168668">
+          📞 Call Us
+        </a>
+
+        <a class="contact-btn whatsapp"
+           href="https://wa.me/919742168668"
+           target="_blank"
+           rel="noopener">
+          💬 WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+    © 2026 Arisudan Transport • Book • Track • Deliver
+  </footer>
 
 </div>
 
+
 <script>
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
+  window.addEventListener("load", function(){
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(function(){
+        console.log("Arisudan Service Worker registered");
+      })
+      .catch(function(error){
+        console.log("Service Worker error:", error);
+      });
+  });
 }
 </script>
 
