@@ -9,323 +9,288 @@
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,Helvetica,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#07111f;
-  color:#fff;
-  min-height:100vh;
+background:#07111f;
+color:white;
+min-height:100vh;
 }
 
 .app{
-  max-width:520px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:35px;
+max-width:520px;
+margin:auto;
+min-height:100vh;
+padding-bottom:35px;
 }
 
-/* HEADER */
-
 .header{
-  padding:18px;
-  background:linear-gradient(145deg,#0d2034,#07111f);
-  border-bottom:1px solid rgba(255,255,255,.06);
+padding:18px;
+background:linear-gradient(145deg,#10253b,#07111f);
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .header-row{
-  display:flex;
-  align-items:center;
-  gap:13px;
+display:flex;
+align-items:center;
+gap:13px;
 }
 
 .back{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#102033;
-  color:white;
-  text-decoration:none;
-  font-size:20px;
+width:42px;
+height:42px;
+border-radius:13px;
+background:#102033;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-decoration:none;
+font-size:21px;
 }
 
 .header-icon{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(145deg,#ffe16a,#ffb900);
-  font-size:22px;
+width:44px;
+height:44px;
+border-radius:14px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
 }
 
 .header h1{
-  font-size:18px;
+font-size:18px;
 }
 
 .header p{
-  color:#738196;
-  font-size:10px;
-  margin-top:3px;
+font-size:10px;
+color:#77869a;
+margin-top:3px;
 }
 
-/* CONTENT */
-
 .content{
-  padding:20px 18px;
+padding:20px 18px;
 }
 
 .title{
-  margin-bottom:18px;
+margin-bottom:18px;
+}
+
+.title small{
+color:#ffd43b;
+font-size:9px;
+font-weight:bold;
 }
 
 .title h2{
-  font-size:24px;
+font-size:24px;
+margin-top:5px;
 }
 
 .title p{
-  color:#77869a;
-  font-size:12px;
-  margin-top:6px;
+font-size:11px;
+color:#77869a;
+margin-top:6px;
 }
 
-/* CARD */
-
 .card{
-  background:#0e1c2d;
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:22px;
-  padding:18px;
-  margin-bottom:15px;
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:21px;
+padding:18px;
+margin-bottom:15px;
 }
 
 .card-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:16px;
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:17px;
 }
 
-.card-number{
-  width:30px;
-  height:30px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,212,59,.1);
-  color:#ffd43b;
-  font-size:12px;
-  font-weight:bold;
+.card-icon{
+width:35px;
+height:35px;
+border-radius:11px;
+background:rgba(255,212,59,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:17px;
 }
 
 .card-title h3{
-  font-size:14px;
+font-size:14px;
 }
-
-/* INPUTS */
 
 .field{
-  margin-bottom:14px;
-}
-
-.field:last-child{
-  margin-bottom:0;
+margin-bottom:14px;
 }
 
 label{
-  display:block;
-  color:#9ba7b6;
-  font-size:10px;
-  font-weight:bold;
-  margin-bottom:7px;
-  text-transform:uppercase;
+display:block;
+color:#8997aa;
+font-size:9px;
+font-weight:bold;
+margin-bottom:7px;
 }
 
 .input-wrap{
-  position:relative;
+position:relative;
 }
 
 .input-icon{
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:17px;
+position:absolute;
+left:13px;
+top:50%;
+transform:translateY(-50%);
+font-size:16px;
 }
 
 input,select{
-  width:100%;
-  height:52px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;
-  background:#091625;
-  color:#fff;
-  outline:none;
-  padding:0 14px 0 43px;
-  font-size:14px;
+width:100%;
+height:51px;
+border-radius:13px;
+border:1px solid rgba(255,255,255,.07);
+background:#091625;
+color:white;
+padding:0 13px 0 40px;
+outline:none;
+font-size:12px;
 }
 
 select{
-  padding-left:43px;
-  appearance:auto;
+padding-left:40px;
 }
 
 input:focus,
 select:focus{
-  border-color:#ffd43b;
-  box-shadow:0 0 0 3px rgba(255,212,59,.07);
+border-color:#ffd43b;
+box-shadow:0 0 0 3px rgba(255,212,59,.06);
 }
 
-/* VEHICLES */
-
-.vehicle-list{
-  display:grid;
-  gap:10px;
+.vehicle-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
 }
 
 .vehicle{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:13px;
-  border-radius:15px;
-  background:#091625;
-  border:1px solid rgba(255,255,255,.07);
-  cursor:pointer;
-  transition:.2s;
+position:relative;
 }
 
-.vehicle.active{
-  border-color:#ffd43b;
-  background:rgba(255,212,59,.07);
+.vehicle input{
+position:absolute;
+opacity:0;
+pointer-events:none;
 }
 
-.vehicle-icon{
-  width:45px;
-  height:45px;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,212,59,.09);
-  font-size:23px;
+.vehicle label{
+height:105px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:15px;
+background:#091625;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+margin:0;
 }
 
-.vehicle-info{
-  flex:1;
+.vehicle label .vehicle-icon{
+font-size:28px;
+margin-bottom:7px;
 }
 
-.vehicle-info h4{
-  font-size:13px;
+.vehicle label strong{
+font-size:10px;
+color:#fff;
 }
 
-.vehicle-info p{
-  color:#68778a;
-  font-size:10px;
-  margin-top:4px;
+.vehicle label span{
+font-size:8px;
+color:#68778a;
+margin-top:4px;
 }
 
-.vehicle-price{
-  color:#ffd43b;
-  font-size:12px;
-  font-weight:bold;
+.vehicle input:checked + label{
+border-color:#ffd43b;
+background:rgba(255,212,59,.08);
 }
 
-.radio{
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  border:2px solid #526173;
+.vehicle input:checked + label strong{
+color:#ffd43b;
 }
-
-.vehicle.active .radio{
-  border:5px solid #ffd43b;
-}
-
-/* FARE */
 
 .fare{
-  margin-top:16px;
-  padding:17px;
-  border-radius:17px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,212,59,.12),
-      rgba(255,212,59,.03)
-    );
-  border:1px solid rgba(255,212,59,.15);
-}
-
-.fare-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+background:linear-gradient(135deg,#172c43,#0b1929);
+border:1px solid rgba(255,212,59,.13);
+border-radius:18px;
+padding:17px;
+margin-bottom:15px;
+text-align:center;
 }
 
 .fare-label{
-  color:#8896a8;
-  font-size:11px;
+font-size:9px;
+color:#78869a;
 }
 
 .fare-price{
-  color:#ffd43b;
-  font-size:23px;
-  font-weight:900;
+font-size:29px;
+font-weight:900;
+color:#ffd43b;
+margin-top:5px;
 }
 
 .fare-note{
-  color:#647286;
-  font-size:9px;
-  margin-top:5px;
+font-size:8px;
+color:#657489;
+margin-top:5px;
 }
 
-/* BUTTON */
-
 .book-btn{
-  width:100%;
-  height:56px;
-  border:0;
-  border-radius:16px;
-  background:linear-gradient(135deg,#ffe16a,#ffc400);
-  color:#111;
-  font-size:15px;
-  font-weight:900;
-  cursor:pointer;
-  box-shadow:0 13px 30px rgba(255,196,0,.15);
+width:100%;
+height:55px;
+border:0;
+border-radius:16px;
+background:linear-gradient(135deg,#ffe36a,#ffc400);
+color:#111;
+font-size:14px;
+font-weight:900;
+cursor:pointer;
 }
 
 .book-btn:active{
-  transform:scale(.98);
+transform:scale(.98);
 }
 
 .message{
-  display:none;
-  margin-bottom:14px;
-  padding:12px;
-  border-radius:12px;
-  text-align:center;
-  font-size:11px;
+display:none;
+padding:12px;
+border-radius:12px;
+margin-bottom:14px;
+font-size:11px;
+text-align:center;
 }
 
 .message.error{
-  display:block;
-  color:#ffb4b4;
-  background:rgba(239,68,68,.08);
+display:block;
+background:rgba(239,68,68,.08);
+color:#fca5a5;
 }
 
 .message.success{
-  display:block;
-  color:#a7f3b8;
-  background:rgba(34,197,94,.08);
+display:block;
+background:rgba(34,197,94,.08);
+color:#86efac;
 }
 </style>
 </head>
@@ -336,253 +301,270 @@ select:focus{
 
 <header class="header">
 
-  <div class="header-row">
+<div class="header-row">
 
-    <a class="back" href="./dashboard.html">
-      ←
-    </a>
+<a class="back" href="dashboard.html">
+←
+</a>
 
-    <div class="header-icon">
-      🚚
-    </div>
+<div class="header-icon">
+🚚
+</div>
 
-    <div>
-      <h1>Book Vehicle</h1>
-      <p>Arisudan Transport</p>
-    </div>
+<div>
+<h1>Book Vehicle</h1>
+<p>Arisudan Transport</p>
+</div>
 
-  </div>
+</div>
 
 </header>
 
 
 <main class="content">
 
-  <div class="title">
+<div class="title">
 
-    <h2>Plan your trip 🚛</h2>
+<small>FAST • SIMPLE • RELIABLE</small>
 
-    <p>
-      Enter your pickup, destination and vehicle details.
-    </p>
+<h2>Plan Your Trip 🚛</h2>
 
-  </div>
+<p>
+Enter your pickup and delivery details.
+</p>
 
+</div>
 
-  <div id="message" class="message"></div>
 
+<div id="message" class="message"></div>
 
-  <!-- LOCATIONS -->
 
-  <div class="card">
+<!-- ROUTE -->
 
-    <div class="card-title">
+<div class="card">
 
-      <div class="card-number">01</div>
+<div class="card-title">
 
-      <h3>Trip Locations</h3>
+<div class="card-icon">
+📍
+</div>
 
-    </div>
+<h3>Trip Details</h3>
 
+</div>
 
-    <div class="field">
 
-      <label>Pickup Location</label>
+<div class="field">
 
-      <div class="input-wrap">
+<label>PICKUP LOCATION</label>
 
-        <span class="input-icon">📍</span>
+<div class="input-wrap">
 
-        <input
-          id="pickup"
-          type="text"
-          placeholder="Where should we pick up?"
-          required>
+<span class="input-icon">🟢</span>
 
-      </div>
+<input
+id="pickup"
+type="text"
+placeholder="Where should we collect goods?">
 
-    </div>
+</div>
 
+</div>
 
-    <div class="field">
 
-      <label>Drop Location</label>
+<div class="field">
 
-      <div class="input-wrap">
+<label>DROP LOCATION</label>
 
-        <span class="input-icon">🏁</span>
+<div class="input-wrap">
 
-        <input
-          id="drop"
-          type="text"
-          placeholder="Where should we deliver?"
-          required>
+<span class="input-icon">🔴</span>
 
-      </div>
+<input
+id="drop"
+type="text"
+placeholder="Where should we deliver?">
 
-    </div>
+</div>
 
+</div>
 
-    <div class="field">
 
-      <label>Distance</label>
+<div class="field">
 
-      <div class="input-wrap">
+<label>DISTANCE</label>
 
-        <span class="input-icon">🛣️</span>
+<div class="input-wrap">
 
-        <input
-          id="distance"
-          type="number"
-          min="1"
-          placeholder="Distance in KM"
-          required>
+<span class="input-icon">📏</span>
 
-      </div>
+<input
+id="distance"
+type="number"
+min="1"
+placeholder="Distance in KM"
+oninput="calculateFare()">
 
-    </div>
+</div>
 
-  </div>
+</div>
 
+</div>
 
-  <!-- VEHICLE -->
 
-  <div class="card">
+<!-- VEHICLE -->
 
-    <div class="card-title">
+<div class="card">
 
-      <div class="card-number">02</div>
+<div class="card-title">
 
-      <h3>Select Vehicle</h3>
+<div class="card-icon">
+🚛
+</div>
 
-    </div>
+<h3>Select Vehicle</h3>
 
+</div>
 
-    <div class="vehicle-list">
 
-      <div
-        class="vehicle active"
-        data-value="400"
-        data-name="3 Wheeler"
-        onclick="selectVehicle(this)">
+<div class="vehicle-grid">
 
-        <div class="vehicle-icon">
-          🛺
-        </div>
 
-        <div class="vehicle-info">
+<div class="vehicle">
 
-          <h4>3 Wheeler</h4>
+<input
+type="radio"
+name="vehicle"
+id="vehicle1"
+value="3 Wheeler"
+data-base="400"
+checked
+onchange="calculateFare()">
 
-          <p>Small goods • Local delivery</p>
+<label for="vehicle1">
 
-        </div>
+<div class="vehicle-icon">
+🛺
+</div>
 
-        <div class="vehicle-price">
-          ₹400
-        </div>
+<strong>3 Wheeler</strong>
 
-        <div class="radio"></div>
+<span>Light goods</span>
 
-      </div>
+</label>
 
+</div>
 
-      <div
-        class="vehicle"
-        data-value="800"
-        data-name="Mini Truck"
-        onclick="selectVehicle(this)">
 
-        <div class="vehicle-icon">
-          🚚
-        </div>
+<div class="vehicle">
 
-        <div class="vehicle-info">
+<input
+type="radio"
+name="vehicle"
+id="vehicle2"
+value="Mini Truck"
+data-base="800"
+onchange="calculateFare()">
 
-          <h4>Mini Truck</h4>
+<label for="vehicle2">
 
-          <p>Goods • Medium loads</p>
+<div class="vehicle-icon">
+🚚
+</div>
 
-        </div>
+<strong>Mini Truck</strong>
 
-        <div class="vehicle-price">
-          ₹800
-        </div>
+<span>Medium goods</span>
 
-        <div class="radio"></div>
+</label>
 
-      </div>
+</div>
 
 
-      <div
-        class="vehicle"
-        data-value="1500"
-        data-name="Truck 5 Ton"
-        onclick="selectVehicle(this)">
+<div class="vehicle">
 
-        <div class="vehicle-icon">
-          🚛
-        </div>
+<input
+type="radio"
+name="vehicle"
+id="vehicle3"
+value="Truck 5 Ton"
+data-base="1500"
+onchange="calculateFare()">
 
-        <div class="vehicle-info">
+<label for="vehicle3">
 
-          <h4>Truck 5 Ton</h4>
+<div class="vehicle-icon">
+🚛
+</div>
 
-          <p>Heavy goods • Large loads</p>
+<strong>Truck 5 Ton</strong>
 
-        </div>
+<span>Heavy goods</span>
 
-        <div class="vehicle-price">
-          ₹1,500
-        </div>
+</label>
 
-        <div class="radio"></div>
+</div>
 
-      </div>
 
-    </div>
+<div class="vehicle">
 
+<input
+type="radio"
+name="vehicle"
+id="vehicle4"
+value="Super Carry CNG"
+data-base="1000"
+onchange="calculateFare()">
 
-    <div class="fare">
+<label for="vehicle4">
 
-      <div class="fare-row">
+<div class="vehicle-icon">
+🚚
+</div>
 
-        <div>
+<strong>Super Carry CNG</strong>
 
-          <div class="fare-label">
-            ESTIMATED FARE
-          </div>
+<span>Goods carrier</span>
 
-          <div class="fare-note">
-            Base fare + ₹25 per KM
-          </div>
+</label>
 
-        </div>
+</div>
 
-        <div
-          class="fare-price"
-          id="fare">
+</div>
 
-          ₹0
+</div>
 
-        </div>
 
-      </div>
+<!-- FARE -->
 
-    </div>
+<div class="fare">
 
-  </div>
+<div class="fare-label">
+ESTIMATED FARE
+</div>
 
+<div
+class="fare-price"
+id="fare">
 
-  <!-- BOOK -->
+₹0
 
-  <button
-    class="book-btn"
-    onclick="bookVehicle()">
+</div>
 
-    🚚 &nbsp; CONFIRM BOOKING
+<div class="fare-note">
+Base fare + ₹25 per kilometre
+</div>
 
-  </button>
+</div>
+
+
+<button
+class="book-btn"
+onclick="bookVehicle()">
+
+🚚 CONFIRM BOOKING →
+
+</button>
 
 </main>
 
@@ -591,238 +573,274 @@ select:focus{
 
 <script>
 
-let selectedVehicle = {
-  value:400,
-  name:"3 Wheeler"
-};
+function getSession(){
 
+let data =
+localStorage.getItem(
+"arisudan_session"
+);
 
-/* VEHICLE */
+if(!data){
 
-function selectVehicle(element){
-
-  document
-    .querySelectorAll(".vehicle")
-    .forEach(function(item){
-
-      item.classList.remove("active");
-
-    });
-
-
-  element.classList.add("active");
-
-
-  selectedVehicle = {
-
-    value:Number(
-      element.dataset.value
-    ),
-
-    name:
-      element.dataset.name
-
-  };
-
-
-  calculateFare();
+data =
+sessionStorage.getItem(
+"arisudan_session"
+);
 
 }
 
+if(!data){
+return null;
+}
 
-/* FARE */
+try{
+return JSON.parse(data);
+}
+catch(e){
+return null;
+}
 
-document
-  .getElementById("distance")
-  .addEventListener(
-    "input",
-    calculateFare
-  );
+}
 
 
 function calculateFare(){
 
-  const distance =
-    Number(
-      document.getElementById("distance")
-      .value
-    ) || 0;
+const selected =
+document.querySelector(
+'input[name="vehicle"]:checked'
+);
+
+if(!selected){
+return 0;
+}
+
+const base =
+Number(
+selected.dataset.base
+);
+
+const distance =
+Number(
+document.getElementById(
+"distance"
+).value
+) || 0;
+
+const total =
+base + (distance * 25);
 
 
-  const total =
-    selectedVehicle.value +
-    (distance * 25);
+document.getElementById(
+"fare"
+).textContent =
+"₹" +
+total.toLocaleString(
+"en-IN"
+);
 
-
-  document.getElementById("fare")
-    .textContent =
-    "₹" + total.toLocaleString("en-IN");
+return total;
 
 }
 
 
-/* MESSAGE */
+function showMessage(
+text,
+type
+){
 
-function showMessage(text,type){
+const message =
+document.getElementById(
+"message"
+);
 
-  const message =
-    document.getElementById("message");
+message.textContent=text;
 
-  message.textContent = text;
-
-  message.className =
-    "message " + type;
+message.className =
+"message " + type;
 
 }
 
-
-/* BOOKING */
 
 function bookVehicle(){
 
-  const pickup =
-    document.getElementById("pickup")
-    .value.trim();
+const session =
+getSession();
 
 
-  const drop =
-    document.getElementById("drop")
-    .value.trim();
+const pickup =
+document.getElementById(
+"pickup"
+).value.trim();
 
 
-  const distance =
-    Number(
-      document.getElementById("distance")
-      .value
-    );
+const drop =
+document.getElementById(
+"drop"
+).value.trim();
 
 
-  if(!pickup){
-
-    showMessage(
-      "Please enter pickup location.",
-      "error"
-    );
-
-    return;
-
-  }
+const distance =
+Number(
+document.getElementById(
+"distance"
+).value
+);
 
 
-  if(!drop){
-
-    showMessage(
-      "Please enter drop location.",
-      "error"
-    );
-
-    return;
-
-  }
+const selected =
+document.querySelector(
+'input[name="vehicle"]:checked'
+);
 
 
-  if(!distance || distance <= 0){
+if(!pickup){
 
-    showMessage(
-      "Please enter a valid distance.",
-      "error"
-    );
+showMessage(
+"Please enter pickup location.",
+"error"
+);
 
-    return;
-
-  }
-
-
-  const total =
-    selectedVehicle.value +
-    (distance * 25);
-
-
-  const session =
-    JSON.parse(
-      localStorage.getItem(
-        "arisudan_session"
-      )
-    ) ||
-    JSON.parse(
-      sessionStorage.getItem(
-        "arisudan_session"
-      )
-    );
-
-
-  const booking = {
-
-    id:
-      "AT" +
-      Date.now(),
-
-    customerId:
-      session?.id || "",
-
-    customerName:
-      session?.name || "Customer",
-
-    customerMobile:
-      session?.mobile || "",
-
-    pickup:pickup,
-
-    drop:drop,
-
-    distance:distance,
-
-    vehicle:
-      selectedVehicle.name,
-
-    total:total,
-
-    status:"Booked",
-
-    date:
-      new Date().toLocaleDateString(
-        "en-IN"
-      ),
-
-    createdAt:
-      new Date().toISOString()
-
-  };
-
-
-  let bookings =
-    JSON.parse(
-      localStorage.getItem("bookings")
-    ) || [];
-
-
-  bookings.push(booking);
-
-
-  localStorage.setItem(
-    "bookings",
-    JSON.stringify(bookings)
-  );
-
-
-  showMessage(
-    "Booking confirmed! Your booking ID is " +
-    booking.id,
-    "success"
-  );
-
-
-  setTimeout(function(){
-
-    location.href =
-      "./history.html";
-
-  },1200);
+return;
 
 }
 
 
-/* INITIAL FARE */
+if(!drop){
+
+showMessage(
+"Please enter drop location.",
+"error"
+);
+
+return;
+
+}
+
+
+if(!distance || distance<=0){
+
+showMessage(
+"Please enter a valid distance.",
+"error"
+);
+
+return;
+
+}
+
+
+if(!selected){
+
+showMessage(
+"Please select a vehicle.",
+"error"
+);
+
+return;
+
+}
+
+
+const base =
+Number(
+selected.dataset.base
+);
+
+
+const total =
+base + (distance * 25);
+
+
+const now =
+new Date();
+
+
+const booking = {
+
+id:
+"AT" +
+Date.now()
+.toString()
+.slice(-8),
+
+customerName:
+session?.name || "Customer",
+
+customerMobile:
+session?.mobile || "",
+
+pickup:pickup,
+
+drop:drop,
+
+distance:distance,
+
+vehicle:selected.value,
+
+baseFare:base,
+
+total:total,
+
+status:"Booked",
+
+date:
+now.toLocaleDateString(
+"en-IN"
+),
+
+time:
+now.toLocaleTimeString(
+"en-IN",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+),
+
+createdAt:
+now.toISOString()
+
+};
+
+
+let bookings =
+JSON.parse(
+localStorage.getItem(
+"bookings"
+)
+) || [];
+
+
+bookings.push(booking);
+
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+
+localStorage.setItem(
+"selectedBookingId",
+booking.id
+);
+
+
+showMessage(
+"Booking confirmed successfully ✓",
+"success"
+);
+
+
+setTimeout(function(){
+
+window.location.href =
+"track.html";
+
+},700);
+
+}
+
 
 calculateFare();
 
