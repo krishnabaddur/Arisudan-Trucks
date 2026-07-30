@@ -7,13 +7,7 @@
 
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
 
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-</script>
 <style>
 *{
 margin:0;
@@ -81,6 +75,7 @@ color:#fff;
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
@@ -91,17 +86,23 @@ color:#fff;
 
 <p>Book • Track • Deliver</p>
 
-<button class="customer">Customer Login</button>
+<button class="customer" onclick="location.href='login.html'">
+Customer Login
+</button>
 
-<button class="driver">Driver Login</button>
+<button class="driver" onclick="location.href='login.html'">
+Driver Login
+</button>
 
-<button class="admin">Admin Login</button>
+<button class="admin" onclick="location.href='login.html'">
+Admin Login
+</button>
 
 </div>
 
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
+if ("serviceWorker" in navigator) {
+navigator.serviceWorker.register("service-worker.js");
 }
 </script>
 
