@@ -9,289 +9,351 @@
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,Helvetica,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#07111f;
-  color:white;
-  min-height:100vh;
+background:#07111f;
+color:white;
+min-height:100vh;
 }
 
 .app{
-  max-width:520px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:90px;
+max-width:520px;
+margin:auto;
+min-height:100vh;
+padding-bottom:30px;
 }
 
 /* HEADER */
 
 .header{
-  padding:20px 18px 18px;
-  background:
-    linear-gradient(145deg,#0d2034,#07111f);
-  border-bottom:1px solid rgba(255,255,255,.06);
+padding:18px;
+background:linear-gradient(145deg,#10253b,#07111f);
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.header-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
+display:flex;
+align-items:center;
+gap:11px;
 }
 
-.brand-logo{
-  width:45px;
-  height:45px;
-  border-radius:14px;
-  background:linear-gradient(145deg,#ffe16a,#ffb900);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
+.logo{
+width:47px;
+height:47px;
+border-radius:15px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
+box-shadow:0 10px 30px rgba(255,196,0,.12);
 }
 
 .brand h1{
-  font-size:17px;
+font-size:17px;
 }
 
 .brand p{
-  color:#738196;
-  font-size:10px;
-  margin-top:3px;
+font-size:9px;
+color:#77869a;
+margin-top:4px;
 }
 
 .profile-btn{
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.08);
-  background:#102033;
-  color:white;
-  font-size:19px;
-  cursor:pointer;
+width:43px;
+height:43px;
+border-radius:13px;
+background:#102033;
+border:1px solid rgba(255,255,255,.06);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:19px;
+cursor:pointer;
+text-decoration:none;
 }
 
 /* WELCOME */
 
+.content{
+padding:20px 18px;
+}
+
 .welcome{
-  padding:22px 18px 8px;
+margin-bottom:19px;
 }
 
 .welcome small{
-  color:#77869a;
-  font-size:11px;
+color:#ffd43b;
+font-size:10px;
+font-weight:bold;
 }
 
 .welcome h2{
-  margin-top:5px;
-  font-size:25px;
+font-size:25px;
+margin-top:5px;
 }
 
-.welcome h2 span{
-  color:#ffd43b;
+.welcome p{
+font-size:11px;
+color:#77869a;
+margin-top:6px;
 }
 
 /* HERO */
 
 .hero{
-  margin:15px 18px;
-  padding:23px;
-  border-radius:24px;
-  background:
-    radial-gradient(circle at 90% 20%,rgba(255,212,59,.16),transparent 35%),
-    linear-gradient(135deg,#182d42,#0b1726);
-  border:1px solid rgba(255,255,255,.07);
-  position:relative;
-  overflow:hidden;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(135deg,#172c43,#0d1c2c);
+border:1px solid rgba(255,255,255,.06);
+border-radius:23px;
+padding:20px;
+margin-bottom:15px;
 }
 
 .hero:after{
-  content:"🚚";
-  position:absolute;
-  right:-5px;
-  bottom:-15px;
-  font-size:95px;
-  opacity:.12;
-  transform:rotate(-5deg);
+content:"";
+position:absolute;
+width:150px;
+height:150px;
+border-radius:50%;
+background:rgba(255,212,59,.07);
+right:-65px;
+top:-65px;
 }
 
 .hero h3{
-  font-size:21px;
-  max-width:260px;
-  line-height:1.25;
+font-size:18px;
+position:relative;
+z-index:2;
 }
 
 .hero p{
-  color:#8e9bad;
-  font-size:12px;
-  margin-top:8px;
-  max-width:270px;
+color:#8794a5;
+font-size:10px;
+line-height:1.5;
+margin-top:7px;
+max-width:260px;
+position:relative;
+z-index:2;
 }
 
-.hero-btn{
-  display:inline-block;
-  margin-top:17px;
-  padding:12px 17px;
-  border-radius:12px;
-  background:#ffd43b;
-  color:#111;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:900;
+.book-btn{
+display:inline-flex;
+align-items:center;
+gap:7px;
+margin-top:16px;
+padding:12px 16px;
+border-radius:12px;
+background:#ffd43b;
+color:#111;
+text-decoration:none;
+font-size:11px;
+font-weight:900;
+position:relative;
+z-index:3;
 }
 
 /* QUICK ACTIONS */
 
-.section{
-  padding:18px;
-}
-
 .section-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:13px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:20px 2px 11px;
 }
 
 .section-title h3{
-  font-size:16px;
+font-size:14px;
 }
 
 .section-title span{
-  color:#637286;
-  font-size:10px;
+font-size:9px;
+color:#68778a;
 }
 
-.actions{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:11px;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
 }
 
 .action{
-  padding:18px 15px;
-  border-radius:18px;
-  background:#0e1c2d;
-  border:1px solid rgba(255,255,255,.06);
-  color:white;
-  text-decoration:none;
-  transition:.2s;
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:18px;
+padding:16px;
+text-decoration:none;
+color:white;
+min-height:105px;
+transition:.2s;
 }
 
-.action:hover{
-  transform:translateY(-2px);
-  border-color:rgba(255,212,59,.4);
+.action:active{
+transform:scale(.97);
 }
 
 .action-icon{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,212,59,.1);
-  font-size:21px;
-  margin-bottom:12px;
+width:38px;
+height:38px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,212,59,.09);
+font-size:18px;
+margin-bottom:12px;
 }
 
 .action h4{
-  font-size:13px;
+font-size:12px;
 }
 
 .action p{
-  color:#68778a;
-  font-size:10px;
-  margin-top:4px;
+color:#68778a;
+font-size:9px;
+margin-top:4px;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+}
+
+.stat{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:15px;
+padding:14px 8px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:18px;
+color:#ffd43b;
+}
+
+.stat span{
+display:block;
+color:#69788b;
+font-size:8px;
+margin-top:5px;
 }
 
 /* RECENT */
 
-.empty{
-  padding:25px 15px;
-  text-align:center;
-  background:#0e1c2d;
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:18px;
+.recent{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:19px;
+padding:15px;
 }
 
-.empty-icon{
-  font-size:35px;
-  margin-bottom:8px;
+.recent-item{
+display:flex;
+align-items:center;
+gap:11px;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.empty h4{
-  font-size:14px;
+.recent-item:last-child{
+border-bottom:0;
+padding-bottom:0;
 }
 
-.empty p{
-  color:#68778a;
-  font-size:11px;
-  margin-top:5px;
+.recent-icon{
+width:38px;
+height:38px;
+border-radius:12px;
+background:#091625;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px;
 }
 
-/* BOTTOM NAV */
-
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:520px;
-  height:72px;
-  padding:9px 15px;
-  background:rgba(7,17,31,.96);
-  border-top:1px solid rgba(255,255,255,.08);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  z-index:20;
-  backdrop-filter:blur(15px);
+.recent-info{
+flex:1;
+min-width:0;
 }
 
-.nav-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:4px;
-  color:#627185;
-  text-decoration:none;
-  font-size:10px;
+.recent-info strong{
+display:block;
+font-size:11px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
-.nav-item span{
-  font-size:20px;
+.recent-info span{
+display:block;
+color:#68778a;
+font-size:8px;
+margin-top:4px;
 }
 
-.nav-item.active{
-  color:#ffd43b;
+.recent-price{
+color:#ffd43b;
+font-size:11px;
+font-weight:bold;
 }
 
-/* LOGOUT */
-
-.logout{
-  margin:5px 18px 20px;
-  width:calc(100% - 36px);
-  height:48px;
-  border:1px solid rgba(239,68,68,.2);
-  background:rgba(239,68,68,.06);
-  color:#ff9d9d;
-  border-radius:14px;
-  font-weight:bold;
-  cursor:pointer;
+.empty-recent{
+text-align:center;
+padding:20px 5px;
+color:#68778a;
+font-size:10px;
 }
 
+/* BOTTOM */
+
+.bottom{
+margin-top:20px;
+display:flex;
+justify-content:space-around;
+background:#0b1929;
+border:1px solid rgba(255,255,255,.06);
+border-radius:18px;
+padding:10px 5px;
+}
+
+.bottom a{
+flex:1;
+text-align:center;
+text-decoration:none;
+color:#68778a;
+font-size:9px;
+}
+
+.bottom-icon{
+font-size:18px;
+display:block;
+margin-bottom:4px;
+}
+
+.bottom a.active{
+color:#ffd43b;
+}
 </style>
 </head>
 
@@ -299,451 +361,506 @@ body{
 
 <div class="app">
 
-<!-- HEADER -->
-
 <header class="header">
 
-  <div class="header-top">
+<div class="top">
 
-    <div class="brand">
+<div class="brand">
 
-      <div class="brand-logo">
-        🚛
-      </div>
+<div class="logo">
+🚛
+</div>
 
-      <div>
-        <h1>Arisudan Transport</h1>
-        <p>Book • Track • Deliver</p>
-      </div>
+<div>
+<h1>Arisudan Trucks</h1>
+<p>TRANSPORT • LOGISTICS • DELIVERY</p>
+</div>
 
-    </div>
+</div>
 
-    <button
-      class="profile-btn"
-      onclick="location.href='./profile.html'">
+<a
+class="profile-btn"
+href="profile.html">
 
-      👤
+👤
 
-    </button>
+</a>
 
-  </div>
+</div>
 
 </header>
 
 
-<!-- WELCOME -->
+<main class="content">
 
 <div class="welcome">
 
-  <small>WELCOME BACK</small>
+<small>WELCOME BACK 👋</small>
 
-  <h2>
-    Hello, <span id="userName">Customer</span> 👋
-  </h2>
+<h2 id="userName">
+Customer
+</h2>
+
+<p>
+Your transport command centre.
+</p>
 
 </div>
 
 
 <!-- HERO -->
 
-<section class="hero">
+<div class="hero">
 
-  <h3>
-    Move your goods safely & easily.
-  </h3>
+<h3>
+Move Anything. Anywhere. 🚚
+</h3>
 
-  <p>
-    Book a vehicle from Vijayapura and
-    manage your transport journey in one place.
-  </p>
+<p>
+Book reliable goods vehicles, track your trip
+and manage all your transport bookings.
+</p>
 
-  <a
-    class="hero-btn"
-    href="./booking.html">
+<a
+class="book-btn"
+href="booking.html">
 
-    🚚 Book a Vehicle →
+🚚 BOOK A VEHICLE →
 
-  </a>
+</a>
 
-</section>
+</div>
 
 
 <!-- QUICK ACTIONS -->
 
-<section class="section">
+<div class="section-title">
 
-  <div class="section-title">
+<h3>Quick Actions</h3>
 
-    <h3>Quick Actions</h3>
+<span>TRANSPORT SERVICES</span>
 
-    <span>TRANSPORT SERVICES</span>
-
-  </div>
+</div>
 
 
-  <div class="actions">
+<div class="grid">
 
-    <a
-      class="action"
-      href="./booking.html">
+<a
+class="action"
+href="booking.html">
 
-      <div class="action-icon">
-        🚚
-      </div>
+<div class="action-icon">
+🚚
+</div>
 
-      <h4>Book Vehicle</h4>
+<h4>Book Vehicle</h4>
 
-      <p>Choose your vehicle</p>
+<p>
+Start a new transport booking
+</p>
 
-    </a>
-
-
-    <a
-      class="action"
-      href="./track.html">
-
-      <div class="action-icon">
-        📍
-      </div>
-
-      <h4>Track Trip</h4>
-
-      <p>Check trip status</p>
-
-    </a>
+</a>
 
 
-    <a
-      class="action"
-      href="./history.html">
+<a
+class="action"
+href="track.html">
 
-      <div class="action-icon">
-        🧾
-      </div>
+<div class="action-icon">
+📍
+</div>
 
-      <h4>My Bookings</h4>
+<h4>Track Trip</h4>
 
-      <p>View booking history</p>
+<p>
+Check your current trip status
+</p>
 
-    </a>
-
-
-    <a
-      class="action"
-      href="./profile.html">
-
-      <div class="action-icon">
-        👤
-      </div>
-
-      <h4>My Profile</h4>
-
-      <p>Manage your account</p>
-
-    </a>
-
-  </div>
-
-</section>
+</a>
 
 
-<!-- RECENT BOOKING -->
+<a
+class="action"
+href="history.html">
 
-<section class="section">
+<div class="action-icon">
+🧾
+</div>
 
-  <div class="section-title">
+<h4>Booking History</h4>
 
-    <h3>Recent Booking</h3>
+<p>
+View all your previous trips
+</p>
 
-    <a
-      href="./history.html"
-      style="color:#ffd43b;text-decoration:none;font-size:10px;">
-
-      VIEW ALL
-
-    </a>
-
-  </div>
+</a>
 
 
-  <div id="recentBooking">
+<a
+class="action"
+href="profile.html">
 
-    <div class="empty">
+<div class="action-icon">
+👤
+</div>
 
-      <div class="empty-icon">
-        📦
-      </div>
+<h4>My Profile</h4>
 
-      <h4>No bookings yet</h4>
+<p>
+Manage your account details
+</p>
 
-      <p>
-        Your recent transport booking will appear here.
-      </p>
+</a>
 
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<button
-  class="logout"
-  onclick="logout()">
+<!-- STATS -->
 
-  🚪 Logout
+<div class="section-title">
 
-</button>
+<h3>Your Activity</h3>
+
+<span>OVERVIEW</span>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong id="totalBookings">
+0
+</strong>
+
+<span>BOOKINGS</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="activeBookings">
+0
+</strong>
+
+<span>ACTIVE</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="completedBookings">
+0
+</strong>
+
+<span>COMPLETED</span>
+
+</div>
+
+</div>
+
+
+<!-- RECENT -->
+
+<div class="section-title">
+
+<h3>Recent Bookings</h3>
+
+<span id="viewHistory">
+VIEW ALL</span>
+
+</div>
+
+
+<div class="recent" id="recentList">
+
+<div class="empty-recent">
+No bookings yet.
+</div>
+
+</div>
 
 
 <!-- BOTTOM NAV -->
 
-<nav class="bottom-nav">
+<nav class="bottom">
 
-  <a
-    class="nav-item active"
-    href="./dashboard.html">
+<a
+class="active"
+href="dashboard.html">
 
-    <span>⌂</span>
-    Home
+<span class="bottom-icon">⌂</span>
+Home
 
-  </a>
-
-
-  <a
-    class="nav-item"
-    href="./booking.html">
-
-    <span>🚚</span>
-    Book
-
-  </a>
+</a>
 
 
-  <a
-    class="nav-item"
-    href="./track.html">
+<a
+href="booking.html">
 
-    <span>📍</span>
-    Track
+<span class="bottom-icon">🚚</span>
+Book
 
-  </a>
+</a>
 
 
-  <a
-    class="nav-item"
-    href="./profile.html">
+<a
+href="track.html">
 
-    <span>👤</span>
-    Profile
+<span class="bottom-icon">📍</span>
+Track
 
-  </a>
+</a>
+
+
+<a
+href="history.html">
+
+<span class="bottom-icon">🧾</span>
+History
+
+</a>
+
+
+<a
+href="profile.html">
+
+<span class="bottom-icon">👤</span>
+Profile
+
+</a>
 
 </nav>
+
+</main>
 
 </div>
 
 
 <script>
 
-/* ================================
-   LOAD USER
-================================ */
-
 function getSession(){
 
-  const local =
-    localStorage.getItem("arisudan_session");
+let data =
+localStorage.getItem(
+"arisudan_session"
+);
 
-  const temporary =
-    sessionStorage.getItem("arisudan_session");
+if(!data){
 
-  return JSON.parse(local || temporary || "null");
+data =
+sessionStorage.getItem(
+"arisudan_session"
+);
+
+}
+
+if(!data){
+
+return null;
+
+}
+
+try{
+
+return JSON.parse(data);
+
+}
+catch(e){
+
+return null;
+
+}
 
 }
 
 
-const session = getSession();
+function loadDashboard(){
+
+const session =
+getSession();
 
 
-if(session){
+if(session && session.name){
 
-  document.getElementById("userName")
-    .textContent =
-    session.name || "Customer";
-
-}
-
-
-/* ================================
-   RECENT BOOKING
-================================ */
-
-function loadRecentBooking(){
-
-  const bookings =
-    JSON.parse(
-      localStorage.getItem("bookings")
-    ) || [];
-
-
-  if(bookings.length === 0){
-    return;
-  }
-
-
-  const booking =
-    bookings[bookings.length - 1];
-
-
-  document.getElementById(
-    "recentBooking"
-  ).innerHTML = `
-
-    <div style="
-      background:#0e1c2d;
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:17px;
-    ">
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-      ">
-
-        <div>
-
-          <small style="
-            color:#637286;
-            font-size:9px;
-          ">
-            BOOKING ID
-          </small>
-
-          <div style="
-            margin-top:4px;
-            font-size:13px;
-            font-weight:bold;
-          ">
-            ${booking.id || "AT Booking"}
-          </div>
-
-        </div>
-
-        <span style="
-          padding:6px 9px;
-          border-radius:8px;
-          background:rgba(255,212,59,.1);
-          color:#ffd43b;
-          font-size:9px;
-          font-weight:bold;
-        ">
-          BOOKED
-        </span>
-
-      </div>
-
-
-      <div style="
-        margin-top:15px;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-      ">
-
-        <div>
-
-          <small style="
-            color:#637286;
-            font-size:9px;
-          ">
-            PICKUP
-          </small>
-
-          <p style="
-            margin-top:4px;
-            font-size:11px;
-          ">
-            📍 ${booking.pickup || "-"}
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <small style="
-            color:#637286;
-            font-size:9px;
-          ">
-            DROP
-          </small>
-
-          <p style="
-            margin-top:4px;
-            font-size:11px;
-          ">
-            🏁 ${booking.drop || "-"}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div style="
-        margin-top:14px;
-        padding-top:12px;
-        border-top:1px solid rgba(255,255,255,.05);
-        display:flex;
-        justify-content:space-between;
-      ">
-
-        <span style="
-          color:#7c899a;
-          font-size:10px;
-        ">
-          ${booking.vehicle || "Vehicle"}
-        </span>
-
-        <strong style="
-          color:#ffd43b;
-          font-size:14px;
-        ">
-          ₹${booking.total || 0}
-        </strong>
-
-      </div>
-
-    </div>
-
-  `;
+document.getElementById(
+"userName"
+).textContent =
+session.name;
 
 }
 
 
-loadRecentBooking();
+let bookings =
+JSON.parse(
+localStorage.getItem(
+"bookings"
+)
+) || [];
 
 
-/* ================================
-   LOGOUT
-================================ */
+if(
+session &&
+session.role==="customer" &&
+session.mobile
+){
 
-function logout(){
+bookings =
+bookings.filter(function(booking){
 
-  localStorage.removeItem(
-    "arisudan_session"
-  );
+return (
+booking.customerMobile ===
+session.mobile
+);
 
-  sessionStorage.removeItem(
-    "arisudan_session"
-  );
-
-  location.href="./login.html";
+});
 
 }
+
+
+/* STATS */
+
+const total =
+bookings.length;
+
+
+const active =
+bookings.filter(function(booking){
+
+return (
+booking.status !== "Delivered" &&
+booking.status !== "Cancelled"
+);
+
+}).length;
+
+
+const completed =
+bookings.filter(function(booking){
+
+return booking.status ===
+"Delivered";
+
+}).length;
+
+
+document.getElementById(
+"totalBookings"
+).textContent =
+total;
+
+
+document.getElementById(
+"activeBookings"
+).textContent =
+active;
+
+
+document.getElementById(
+"completedBookings"
+).textContent =
+completed;
+
+
+/* RECENT */
+
+const recent =
+document.getElementById(
+"recentList"
+);
+
+
+if(bookings.length===0){
+
+recent.innerHTML = `
+
+<div class="empty-recent">
+
+📦<br><br>
+Your recent bookings will appear here.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const latest =
+bookings
+.slice()
+.reverse()
+.slice(0,3);
+
+
+recent.innerHTML =
+latest.map(function(booking){
+
+return `
+
+<div class="recent-item">
+
+<div class="recent-icon">
+🚚
+</div>
+
+<div class="recent-info">
+
+<strong>
+${escapeHTML(
+booking.pickup || "-"
+)}
+ →
+${escapeHTML(
+booking.drop || "-"
+)}
+</strong>
+
+<span>
+${escapeHTML(
+booking.status || "Booked"
+)}
+ •
+${escapeHTML(
+booking.vehicle || "Vehicle"
+)}
+</span>
+
+</div>
+
+<div class="recent-price">
+₹${Number(
+booking.total || 0
+).toLocaleString("en-IN")}
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+loadDashboard();
 
 </script>
 
