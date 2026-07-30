@@ -1,20 +1,751 @@
-<div class="card">
-    <h2>Welcome</h2>
-    <p>Book, Track and Manage your transport.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
 
-    <button onclick="location.href='booking.html'">
-        Book Vehicle
+<title>Dashboard | Arisudan Transport</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:#07111f;
+  color:white;
+  min-height:100vh;
+}
+
+.app{
+  max-width:520px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+/* HEADER */
+
+.header{
+  padding:20px 18px 18px;
+  background:
+    linear-gradient(145deg,#0d2034,#07111f);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.brand-logo{
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#ffe16a,#ffb900);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.brand h1{
+  font-size:17px;
+}
+
+.brand p{
+  color:#738196;
+  font-size:10px;
+  margin-top:3px;
+}
+
+.profile-btn{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#102033;
+  color:white;
+  font-size:19px;
+  cursor:pointer;
+}
+
+/* WELCOME */
+
+.welcome{
+  padding:22px 18px 8px;
+}
+
+.welcome small{
+  color:#77869a;
+  font-size:11px;
+}
+
+.welcome h2{
+  margin-top:5px;
+  font-size:25px;
+}
+
+.welcome h2 span{
+  color:#ffd43b;
+}
+
+/* HERO */
+
+.hero{
+  margin:15px 18px;
+  padding:23px;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(255,212,59,.16),transparent 35%),
+    linear-gradient(135deg,#182d42,#0b1726);
+  border:1px solid rgba(255,255,255,.07);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"🚚";
+  position:absolute;
+  right:-5px;
+  bottom:-15px;
+  font-size:95px;
+  opacity:.12;
+  transform:rotate(-5deg);
+}
+
+.hero h3{
+  font-size:21px;
+  max-width:260px;
+  line-height:1.25;
+}
+
+.hero p{
+  color:#8e9bad;
+  font-size:12px;
+  margin-top:8px;
+  max-width:270px;
+}
+
+.hero-btn{
+  display:inline-block;
+  margin-top:17px;
+  padding:12px 17px;
+  border-radius:12px;
+  background:#ffd43b;
+  color:#111;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+}
+
+/* QUICK ACTIONS */
+
+.section{
+  padding:18px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:13px;
+}
+
+.section-title h3{
+  font-size:16px;
+}
+
+.section-title span{
+  color:#637286;
+  font-size:10px;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+
+.action{
+  padding:18px 15px;
+  border-radius:18px;
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  color:white;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.action:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,212,59,.4);
+}
+
+.action-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,212,59,.1);
+  font-size:21px;
+  margin-bottom:12px;
+}
+
+.action h4{
+  font-size:13px;
+}
+
+.action p{
+  color:#68778a;
+  font-size:10px;
+  margin-top:4px;
+}
+
+/* RECENT */
+
+.empty{
+  padding:25px 15px;
+  text-align:center;
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+}
+
+.empty-icon{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.empty h4{
+  font-size:14px;
+}
+
+.empty p{
+  color:#68778a;
+  font-size:11px;
+  margin-top:5px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:520px;
+  height:72px;
+  padding:9px 15px;
+  background:rgba(7,17,31,.96);
+  border-top:1px solid rgba(255,255,255,.08);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:20;
+  backdrop-filter:blur(15px);
+}
+
+.nav-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  color:#627185;
+  text-decoration:none;
+  font-size:10px;
+}
+
+.nav-item span{
+  font-size:20px;
+}
+
+.nav-item.active{
+  color:#ffd43b;
+}
+
+/* LOGOUT */
+
+.logout{
+  margin:5px 18px 20px;
+  width:calc(100% - 36px);
+  height:48px;
+  border:1px solid rgba(239,68,68,.2);
+  background:rgba(239,68,68,.06);
+  color:#ff9d9d;
+  border-radius:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="header-top">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        🚛
+      </div>
+
+      <div>
+        <h1>Arisudan Transport</h1>
+        <p>Book • Track • Deliver</p>
+      </div>
+
+    </div>
+
+    <button
+      class="profile-btn"
+      onclick="location.href='./profile.html'">
+
+      👤
+
     </button>
 
-    <button onclick="location.href='track.html'">
-        Track Booking
-    </button>
+  </div>
 
-    <button onclick="location.href='history.html'">
-        Booking History
-    </button>
+</header>
 
-    <button onclick="location.href='profile.html'">
-        Profile
-    </button>
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+  <small>WELCOME BACK</small>
+
+  <h2>
+    Hello, <span id="userName">Customer</span> 👋
+  </h2>
+
 </div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h3>
+    Move your goods safely & easily.
+  </h3>
+
+  <p>
+    Book a vehicle from Vijayapura and
+    manage your transport journey in one place.
+  </p>
+
+  <a
+    class="hero-btn"
+    href="./booking.html">
+
+    🚚 Book a Vehicle →
+
+  </a>
+
+</section>
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h3>Quick Actions</h3>
+
+    <span>TRANSPORT SERVICES</span>
+
+  </div>
+
+
+  <div class="actions">
+
+    <a
+      class="action"
+      href="./booking.html">
+
+      <div class="action-icon">
+        🚚
+      </div>
+
+      <h4>Book Vehicle</h4>
+
+      <p>Choose your vehicle</p>
+
+    </a>
+
+
+    <a
+      class="action"
+      href="./track.html">
+
+      <div class="action-icon">
+        📍
+      </div>
+
+      <h4>Track Trip</h4>
+
+      <p>Check trip status</p>
+
+    </a>
+
+
+    <a
+      class="action"
+      href="./history.html">
+
+      <div class="action-icon">
+        🧾
+      </div>
+
+      <h4>My Bookings</h4>
+
+      <p>View booking history</p>
+
+    </a>
+
+
+    <a
+      class="action"
+      href="./profile.html">
+
+      <div class="action-icon">
+        👤
+      </div>
+
+      <h4>My Profile</h4>
+
+      <p>Manage your account</p>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- RECENT BOOKING -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h3>Recent Booking</h3>
+
+    <a
+      href="./history.html"
+      style="color:#ffd43b;text-decoration:none;font-size:10px;">
+
+      VIEW ALL
+
+    </a>
+
+  </div>
+
+
+  <div id="recentBooking">
+
+    <div class="empty">
+
+      <div class="empty-icon">
+        📦
+      </div>
+
+      <h4>No bookings yet</h4>
+
+      <p>
+        Your recent transport booking will appear here.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<button
+  class="logout"
+  onclick="logout()">
+
+  🚪 Logout
+
+</button>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+  <a
+    class="nav-item active"
+    href="./dashboard.html">
+
+    <span>⌂</span>
+    Home
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="./booking.html">
+
+    <span>🚚</span>
+    Book
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="./track.html">
+
+    <span>📍</span>
+    Track
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="./profile.html">
+
+    <span>👤</span>
+    Profile
+
+  </a>
+
+</nav>
+
+</div>
+
+
+<script>
+
+/* ================================
+   LOAD USER
+================================ */
+
+function getSession(){
+
+  const local =
+    localStorage.getItem("arisudan_session");
+
+  const temporary =
+    sessionStorage.getItem("arisudan_session");
+
+  return JSON.parse(local || temporary || "null");
+
+}
+
+
+const session = getSession();
+
+
+if(session){
+
+  document.getElementById("userName")
+    .textContent =
+    session.name || "Customer";
+
+}
+
+
+/* ================================
+   RECENT BOOKING
+================================ */
+
+function loadRecentBooking(){
+
+  const bookings =
+    JSON.parse(
+      localStorage.getItem("bookings")
+    ) || [];
+
+
+  if(bookings.length === 0){
+    return;
+  }
+
+
+  const booking =
+    bookings[bookings.length - 1];
+
+
+  document.getElementById(
+    "recentBooking"
+  ).innerHTML = `
+
+    <div style="
+      background:#0e1c2d;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:17px;
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+      ">
+
+        <div>
+
+          <small style="
+            color:#637286;
+            font-size:9px;
+          ">
+            BOOKING ID
+          </small>
+
+          <div style="
+            margin-top:4px;
+            font-size:13px;
+            font-weight:bold;
+          ">
+            ${booking.id || "AT Booking"}
+          </div>
+
+        </div>
+
+        <span style="
+          padding:6px 9px;
+          border-radius:8px;
+          background:rgba(255,212,59,.1);
+          color:#ffd43b;
+          font-size:9px;
+          font-weight:bold;
+        ">
+          BOOKED
+        </span>
+
+      </div>
+
+
+      <div style="
+        margin-top:15px;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+      ">
+
+        <div>
+
+          <small style="
+            color:#637286;
+            font-size:9px;
+          ">
+            PICKUP
+          </small>
+
+          <p style="
+            margin-top:4px;
+            font-size:11px;
+          ">
+            📍 ${booking.pickup || "-"}
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <small style="
+            color:#637286;
+            font-size:9px;
+          ">
+            DROP
+          </small>
+
+          <p style="
+            margin-top:4px;
+            font-size:11px;
+          ">
+            🏁 ${booking.drop || "-"}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div style="
+        margin-top:14px;
+        padding-top:12px;
+        border-top:1px solid rgba(255,255,255,.05);
+        display:flex;
+        justify-content:space-between;
+      ">
+
+        <span style="
+          color:#7c899a;
+          font-size:10px;
+        ">
+          ${booking.vehicle || "Vehicle"}
+        </span>
+
+        <strong style="
+          color:#ffd43b;
+          font-size:14px;
+        ">
+          ₹${booking.total || 0}
+        </strong>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+loadRecentBooking();
+
+
+/* ================================
+   LOGOUT
+================================ */
+
+function logout(){
+
+  localStorage.removeItem(
+    "arisudan_session"
+  );
+
+  sessionStorage.removeItem(
+    "arisudan_session"
+  );
+
+  location.href="./login.html";
+
+}
+
+</script>
+
+</body>
+</html>
