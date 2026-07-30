@@ -2,104 +2,1173 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Trip</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+
+<title>Track Booking | Arisudan Transport</title>
 
 <style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111827;
-color:white;
+  background:#07111f;
+  color:#fff;
+  min-height:100vh;
 }
 
-header{
-background:#FFD700;
-color:black;
-padding:20px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
+.app{
+  max-width:520px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:30px;
 }
 
-.container{
-padding:20px;
+/* HEADER */
+
+.header{
+  padding:18px;
+  background:linear-gradient(145deg,#0d2034,#07111f);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
+
+.header-row{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.back{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#102033;
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+}
+
+.header-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#ffe16a,#ffb900);
+  font-size:22px;
+}
+
+.header h1{
+  font-size:18px;
+}
+
+.header p{
+  color:#738196;
+  font-size:10px;
+  margin-top:3px;
+}
+
+/* CONTENT */
+
+.content{
+  padding:20px 18px;
+}
+
+.title{
+  margin-bottom:17px;
+}
+
+.title h2{
+  font-size:24px;
+}
+
+.title p{
+  color:#77869a;
+  font-size:12px;
+  margin-top:6px;
+}
+
+/* SELECT BOOKING */
+
+.select-card{
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:15px;
+}
+
+.select-label{
+  color:#8b98a9;
+  font-size:10px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+select{
+  width:100%;
+  height:48px;
+  padding:0 13px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#091625;
+  color:white;
+  outline:none;
+  font-size:12px;
+}
+
+select:focus{
+  border-color:#ffd43b;
+}
+
+/* MAIN CARD */
 
 .card{
-background:#1f2937;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  padding:18px;
+  margin-bottom:15px;
+}
+
+/* TOP */
+
+.booking-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.booking-id{
+  color:#ffd43b;
+  font-size:13px;
+  font-weight:900;
+}
+
+.booking-date{
+  color:#667488;
+  font-size:9px;
+  margin-top:4px;
 }
 
 .status{
-font-size:22px;
-color:#FFD700;
-margin-top:15px;
+  padding:7px 10px;
+  border-radius:9px;
+  background:rgba(255,212,59,.1);
+  color:#ffd43b;
+  font-size:9px;
+  font-weight:bold;
 }
 
-button{
-width:100%;
-padding:15px;
-background:#FFD700;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-margin-top:20px;
+/* ROUTE */
+
+.route{
+  margin-top:18px;
+  padding:16px;
+  background:#091625;
+  border-radius:17px;
+}
+
+.location{
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+
+.dot{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#ffd43b;
+  margin-top:3px;
+  flex:none;
+  box-shadow:0 0 0 4px rgba(255,212,59,.08);
+}
+
+.dot.drop{
+  background:#ef4444;
+  box-shadow:0 0 0 4px rgba(239,68,68,.08);
+}
+
+.location-label{
+  color:#647286;
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+.location-name{
+  font-size:12px;
+  margin-top:4px;
+  line-height:1.35;
+}
+
+.route-line{
+  height:23px;
+  width:2px;
+  background:#2b3b4e;
+  margin:2px 0 2px 6px;
+}
+
+/* INFO */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:14px;
+}
+
+.info{
+  padding:12px;
+  background:#091625;
+  border-radius:13px;
+}
+
+.info-label{
+  color:#647286;
+  font-size:8px;
+  text-transform:uppercase;
+}
+
+.info-value{
+  font-size:11px;
+  margin-top:5px;
+  font-weight:bold;
+}
+
+.price{
+  color:#ffd43b;
+}
+
+/* PROGRESS */
+
+.progress-card{
+  margin-top:15px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.progress-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:19px;
+}
+
+.progress-title h3{
+  font-size:13px;
+}
+
+.progress-title span{
+  color:#ffd43b;
+  font-size:9px;
+}
+
+.timeline{
+  position:relative;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:10px;
+  bottom:10px;
+  width:2px;
+  background:#26374a;
+}
+
+.step{
+  position:relative;
+  display:flex;
+  gap:13px;
+  min-height:62px;
+}
+
+.step-dot{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#16283b;
+  border:2px solid #425268;
+  position:relative;
+  z-index:2;
+  flex:none;
+}
+
+.step.done .step-dot{
+  background:#ffd43b;
+  border-color:#ffd43b;
+}
+
+.step.current .step-dot{
+  background:#ffd43b;
+  border-color:#ffd43b;
+  box-shadow:0 0 0 5px rgba(255,212,59,.1);
+}
+
+.step-content h4{
+  font-size:12px;
+}
+
+.step-content p{
+  color:#647286;
+  font-size:9px;
+  margin-top:4px;
+  line-height:1.4;
+}
+
+.step:not(.done):not(.current) .step-content h4{
+  color:#617085;
+}
+
+.step-check{
+  color:#111;
+  font-size:12px;
+  font-weight:bold;
+  text-align:center;
+  line-height:18px;
+}
+
+/* DRIVER */
+
+.driver-card{
+  display:none;
+  align-items:center;
+  gap:13px;
+  margin-top:15px;
+  padding:15px;
+  border-radius:17px;
+  background:#091625;
+}
+
+.driver-avatar{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#182c41;
+  font-size:23px;
+}
+
+.driver-info{
+  flex:1;
+}
+
+.driver-info h4{
+  font-size:12px;
+}
+
+.driver-info p{
+  color:#718094;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.call{
+  width:39px;
+  height:39px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(34,197,94,.1);
+  color:#86efac;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* EMPTY */
+
+.empty{
+  text-align:center;
+  padding:45px 20px;
+  background:#0e1c2d;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+}
+
+.empty-icon{
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.empty h3{
+  font-size:16px;
+}
+
+.empty p{
+  color:#68778a;
+  font-size:11px;
+  margin-top:6px;
+  line-height:1.5;
+}
+
+.book-btn{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 18px;
+  border-radius:12px;
+  background:#ffd43b;
+  color:#111;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-🚛 Live Trip Tracking
+<div class="app">
+
+<header class="header">
+
+  <div class="header-row">
+
+    <a class="back" href="./dashboard.html">
+      ←
+    </a>
+
+    <div class="header-icon">
+      📍
+    </div>
+
+    <div>
+      <h1>Live Tracking</h1>
+      <p>Arisudan Transport</p>
+    </div>
+
+  </div>
+
 </header>
 
-<div class="container">
 
-<div class="card">
+<main class="content">
 
-<h2>Booking ID</h2>
+  <div class="title">
 
-<p>#AT100001</p>
+    <h2>Track your trip 📍</h2>
 
-<div class="status" id="status">
-Booked
+    <p>
+      Follow your booking status from pickup to delivery.
+    </p>
+
+  </div>
+
+
+  <div id="bookingSelector"></div>
+
+  <div id="trackingArea"></div>
+
+</main>
+
 </div>
 
-<button onclick="nextStatus()">
-Refresh Status
-</button>
-
-</div>
-
-</div>
 
 <script>
 
-const statusList=[
-"Booked",
-"Driver Assigned",
-"Picked Up",
-"In Transit",
-"Delivered"
-];
+let bookings = [];
 
-let i=0;
+let selectedBooking = null;
 
-function nextStatus(){
 
-if(i<statusList.length-1){
-i++;
+/* ==========================
+   LOAD BOOKINGS
+========================== */
+
+function loadBookings(){
+
+  bookings =
+    JSON.parse(
+      localStorage.getItem("bookings")
+    ) || [];
+
+
+  const session =
+    JSON.parse(
+      localStorage.getItem(
+        "arisudan_session"
+      )
+    ) ||
+    JSON.parse(
+      sessionStorage.getItem(
+        "arisudan_session"
+      )
+    );
+
+
+  if(
+    session &&
+    session.role === "customer" &&
+    session.mobile
+  ){
+
+    bookings =
+      bookings.filter(function(booking){
+
+        return (
+          booking.customerMobile ===
+          session.mobile
+        );
+
+      });
+
+  }
+
+
+  if(bookings.length === 0){
+
+    showEmpty();
+
+    return;
+
+  }
+
+
+  const selectedId =
+    localStorage.getItem(
+      "selectedBookingId"
+    );
+
+
+  let found =
+    bookings.find(function(booking){
+
+      return booking.id === selectedId;
+
+    });
+
+
+  selectedBooking =
+    found || bookings[bookings.length - 1];
+
+
+  renderSelector();
+
+  renderTracking();
+
 }
 
-document.getElementById("status").innerHTML=statusList[i];
+
+/* ==========================
+   ESCAPE HTML
+========================== */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
+
+
+/* ==========================
+   SELECTOR
+========================== */
+
+function renderSelector(){
+
+  const selector =
+    document.getElementById(
+      "bookingSelector"
+    );
+
+
+  if(bookings.length <= 1){
+
+    selector.innerHTML = "";
+
+    return;
+
+  }
+
+
+  selector.innerHTML = `
+
+    <div class="select-card">
+
+      <div class="select-label">
+        SELECT BOOKING
+      </div>
+
+      <select
+        id="bookingSelect"
+        onchange="changeBooking(this.value)">
+
+        ${
+          bookings.map(function(booking){
+
+            return `
+
+              <option
+                value="${escapeHTML(
+                  booking.id
+                )}"
+                ${
+                  booking.id ===
+                  selectedBooking.id
+                  ? "selected"
+                  : ""
+                }>
+
+                ${escapeHTML(
+                  booking.id
+                )}
+                •
+                ${escapeHTML(
+                  booking.pickup
+                )}
+                → 
+                ${escapeHTML(
+                  booking.drop
+                )}
+
+              </option>
+
+            `;
+
+          }).join("")
+
+        }
+
+      </select>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==========================
+   CHANGE BOOKING
+========================== */
+
+function changeBooking(id){
+
+  selectedBooking =
+    bookings.find(function(booking){
+
+      return booking.id === id;
+
+    });
+
+
+  localStorage.setItem(
+    "selectedBookingId",
+    id
+  );
+
+
+  renderTracking();
+
+}
+
+
+/* ==========================
+   STATUS INDEX
+========================== */
+
+function getStatusIndex(status){
+
+  const statuses = [
+
+    "Booked",
+
+    "Driver Assigned",
+
+    "Picked Up",
+
+    "In Transit",
+
+    "Delivered"
+
+  ];
+
+
+  if(status === "Cancelled"){
+    return -1;
+  }
+
+
+  const index =
+    statuses.indexOf(status);
+
+
+  return index >= 0 ? index : 0;
+
+}
+
+
+/* ==========================
+   TRACKING
+========================== */
+
+function renderTracking(){
+
+  const area =
+    document.getElementById(
+      "trackingArea"
+    );
+
+
+  if(!selectedBooking){
+
+    showEmpty();
+
+    return;
+
+  }
+
+
+  const status =
+    selectedBooking.status ||
+    "Booked";
+
+
+  if(status === "Cancelled"){
+
+    area.innerHTML = `
+
+      <div class="card">
+
+        <div class="booking-top">
+
+          <div>
+
+            <div class="booking-id">
+              ${escapeHTML(
+                selectedBooking.id
+              )}
+            </div>
+
+            <div class="booking-date">
+              ${escapeHTML(
+                selectedBooking.date || ""
+              )}
+            </div>
+
+          </div>
+
+          <div
+            class="status"
+            style="
+              background:rgba(239,68,68,.1);
+              color:#fca5a5;
+            ">
+
+            CANCELLED
+
+          </div>
+
+        </div>
+
+        <div style="
+          text-align:center;
+          padding:35px 10px 15px;
+          color:#ffb4b4;
+        ">
+
+          <div style="
+            font-size:42px;
+            margin-bottom:10px;
+          ">
+            ❌
+          </div>
+
+          <h3 style="font-size:15px;">
+            Booking Cancelled
+          </h3>
+
+          <p style="
+            color:#68778a;
+            font-size:10px;
+            margin-top:6px;
+          ">
+            This booking is no longer active.
+          </p>
+
+        </div>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const current =
+    getStatusIndex(status);
+
+
+  const steps = [
+
+    {
+      title:"Booking Confirmed",
+      text:"Your booking has been received."
+    },
+
+    {
+      title:"Driver Assigned",
+      text:"A driver will be assigned to your trip."
+    },
+
+    {
+      title:"Picked Up",
+      text:"Goods have been picked up."
+    },
+
+    {
+      title:"In Transit",
+      text:"Your goods are on the way."
+    },
+
+    {
+      title:"Delivered",
+      text:"Goods delivered successfully."
+    }
+
+  ];
+
+
+  area.innerHTML = `
+
+    <div class="card">
+
+      <div class="booking-top">
+
+        <div>
+
+          <div class="booking-id">
+            ${escapeHTML(
+              selectedBooking.id
+            )}
+          </div>
+
+          <div class="booking-date">
+            ${escapeHTML(
+              selectedBooking.date || ""
+            )}
+          </div>
+
+        </div>
+
+        <div class="status">
+          ${escapeHTML(status)}
+        </div>
+
+      </div>
+
+
+      <div class="route">
+
+        <div class="location">
+
+          <div class="dot"></div>
+
+          <div>
+
+            <div class="location-label">
+              Pickup
+            </div>
+
+            <div class="location-name">
+              ${escapeHTML(
+                selectedBooking.pickup
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="route-line"></div>
+
+
+        <div class="location">
+
+          <div class="dot drop"></div>
+
+          <div>
+
+            <div class="location-label">
+              Drop
+            </div>
+
+            <div class="location-name">
+              ${escapeHTML(
+                selectedBooking.drop
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-grid">
+
+        <div class="info">
+
+          <div class="info-label">
+            VEHICLE
+          </div>
+
+          <div class="info-value">
+            🚚 ${escapeHTML(
+              selectedBooking.vehicle ||
+              "Vehicle"
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <div class="info-label">
+            FARE
+          </div>
+
+          <div class="info-value price">
+            ₹${Number(
+              selectedBooking.total || 0
+            ).toLocaleString("en-IN")}
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <div class="info-label">
+            DISTANCE
+          </div>
+
+          <div class="info-value">
+            ${escapeHTML(
+              selectedBooking.distance ||
+              0
+            )} KM
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <div class="info-label">
+            CUSTOMER
+          </div>
+
+          <div class="info-value">
+            ${escapeHTML(
+              selectedBooking.customerName ||
+              "Customer"
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="progress-card">
+
+        <div class="progress-title">
+
+          <h3>Trip Progress</h3>
+
+          <span>
+            ${
+              current >= 4
+              ? "COMPLETED"
+              : "LIVE STATUS"
+            }
+          </span>
+
+        </div>
+
+
+        <div class="timeline">
+
+          ${
+            steps.map(function(step,index){
+
+              let className = "";
+
+              if(index < current){
+                className = "done";
+              }
+
+              if(index === current){
+                className = "current";
+              }
+
+
+              return `
+
+                <div class="step ${className}">
+
+                  <div class="step-dot">
+
+                    ${
+                      index < current
+                      ? '<div class="step-check">✓</div>'
+                      : ''
+                    }
+
+                  </div>
+
+                  <div class="step-content">
+
+                    <h4>
+                      ${step.title}
+                    </h4>
+
+                    <p>
+                      ${step.text}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              `;
+
+            }).join("")
+
+          }
+
+        </div>
+
+      </div>
+
+
+      ${
+        selectedBooking.driverName
+        ? `
+
+          <div
+            class="driver-card"
+            style="display:flex;">
+
+            <div class="driver-avatar">
+              👨‍✈️
+            </div>
+
+            <div class="driver-info">
+
+              <h4>
+                ${escapeHTML(
+                  selectedBooking.driverName
+                )}
+              </h4>
+
+              <p>
+                Driver assigned to your trip
+              </p>
+
+            </div>
+
+            ${
+              selectedBooking.driverMobile
+              ? `
+
+                <a
+                  class="call"
+                  href="tel:${escapeHTML(
+                    selectedBooking.driverMobile
+                  )}">
+
+                  📞
+
+                </a>
+
+              `
+              : ""
+
+            }
+
+          </div>
+
+        `
+        : ""
+
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==========================
+   EMPTY
+========================== */
+
+function showEmpty(){
+
+  document.getElementById(
+    "bookingSelector"
+  ).innerHTML = "";
+
+
+  document.getElementById(
+    "trackingArea"
+  ).innerHTML = `
+
+    <div class="empty">
+
+      <div class="empty-icon">
+        📦
+      </div>
+
+      <h3>No booking to track</h3>
+
+      <p>
+        Book a vehicle first and your live
+        trip status will appear here.
+      </p>
+
+      <a
+        class="book-btn"
+        href="./booking.html">
+
+        🚚 Book Vehicle
+
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+loadBookings();
 
 </script>
 
