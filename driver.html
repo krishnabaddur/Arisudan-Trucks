@@ -3,106 +3,890 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Driver Dashboard</title>
+<meta name="theme-color" content="#07111f">
+
+<title>Driver Dashboard | Arisudan Transport</title>
 
 <style>
-body{
+*{
+box-sizing:border-box;
 margin:0;
+padding:0;
 font-family:Arial,sans-serif;
-background:#111827;
-color:white;
 }
 
-header{
-background:#16a34a;
-padding:20px;
-text-align:center;
-font-size:24px;
+body{
+background:#07111f;
+color:white;
+min-height:100vh;
+}
+
+.app{
+max-width:520px;
+margin:auto;
+min-height:100vh;
+padding-bottom:30px;
+}
+
+.header{
+padding:18px;
+background:linear-gradient(145deg,#10253b,#07111f);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+}
+
+.logo{
+width:47px;
+height:47px;
+border-radius:15px;
+background:linear-gradient(145deg,#ffe36a,#ffc400);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
+}
+
+.brand h1{
+font-size:17px;
+}
+
+.brand p{
+font-size:9px;
+color:#77869a;
+margin-top:4px;
+}
+
+.profile{
+width:43px;
+height:43px;
+border-radius:13px;
+background:#102033;
+border:1px solid rgba(255,255,255,.06);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:19px;
+}
+
+.content{
+padding:20px 18px;
+}
+
+.welcome small{
+color:#ffd43b;
+font-size:9px;
 font-weight:bold;
 }
 
-.container{
-padding:20px;
+.welcome h2{
+font-size:24px;
+margin-top:6px;
 }
 
-.card{
-background:#1f2937;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
+.welcome p{
+color:#77869a;
+font-size:10px;
+margin-top:6px;
+}
+
+.driver-card{
+margin-top:18px;
+background:linear-gradient(135deg,#172c43,#0d1c2c);
+border:1px solid rgba(255,255,255,.06);
+border-radius:21px;
+padding:18px;
+}
+
+.driver-row{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.driver-avatar{
+width:52px;
+height:52px;
+border-radius:17px;
+background:#ffd43b;
+color:#111;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
+font-weight:900;
+}
+
+.driver-info h3{
+font-size:14px;
+}
+
+.driver-info p{
+font-size:9px;
+color:#7f8da0;
+margin-top:4px;
+}
+
+.online{
+margin-left:auto;
+padding:7px 9px;
+border-radius:9px;
+background:rgba(34,197,94,.1);
+color:#86efac;
+font-size:8px;
+font-weight:bold;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:16px;
+}
+
+.stat{
+background:#091625;
+border-radius:14px;
+padding:14px;
+}
+
+.stat strong{
+display:block;
+font-size:21px;
+color:#ffd43b;
+}
+
+.stat span{
+display:block;
+font-size:8px;
+color:#68778a;
+margin-top:4px;
+}
+
+.title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:22px 2px 11px;
+}
+
+.title h3{
+font-size:14px;
+}
+
+.title span{
+font-size:8px;
+color:#68778a;
+}
+
+.trip{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:20px;
+padding:16px;
+margin-bottom:12px;
+}
+
+.trip-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.booking-id{
+font-size:10px;
+font-weight:900;
+color:#ffd43b;
 }
 
 .status{
-color:#22c55e;
-font-size:20px;
+font-size:8px;
+font-weight:bold;
+padding:6px 8px;
+border-radius:8px;
+background:rgba(255,212,59,.09);
+color:#ffd43b;
+}
+
+.route{
+display:flex;
+gap:11px;
+margin-top:16px;
+}
+
+.route-line{
+width:18px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.dot{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#ffd43b;
+}
+
+.line{
+height:28px;
+width:1px;
+background:#354255;
+}
+
+.route-text{
+flex:1;
+}
+
+.location{
+font-size:11px;
 font-weight:bold;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:12px;
-background:#16a34a;
-color:white;
-border:none;
-border-radius:10px;
-font-size:17px;
+.location small{
+display:block;
+font-size:7px;
+color:#68778a;
+margin-top:3px;
+margin-bottom:12px;
+}
+
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:4px;
+}
+
+.info-box{
+background:#091625;
+border-radius:11px;
+padding:10px;
+}
+
+.info-box span{
+display:block;
+font-size:7px;
+color:#68778a;
+margin-bottom:4px;
+}
+
+.info-box strong{
+font-size:9px;
+}
+
+.action{
+display:flex;
+gap:8px;
+margin-top:13px;
+}
+
+.action button{
+flex:1;
+height:42px;
+border:0;
+border-radius:11px;
+font-size:9px;
+font-weight:bold;
 cursor:pointer;
 }
-</style>
 
+.start{
+background:#ffd43b;
+color:#111;
+}
+
+.deliver{
+background:#16a34a;
+color:white;
+}
+
+.empty{
+background:#0e1c2d;
+border:1px solid rgba(255,255,255,.06);
+border-radius:20px;
+padding:40px 18px;
+text-align:center;
+}
+
+.empty-icon{
+font-size:40px;
+margin-bottom:12px;
+}
+
+.empty h3{
+font-size:14px;
+}
+
+.empty p{
+font-size:9px;
+color:#68778a;
+margin-top:7px;
+line-height:1.5;
+}
+
+.bottom{
+margin-top:20px;
+display:flex;
+justify-content:space-around;
+background:#0b1929;
+border:1px solid rgba(255,255,255,.06);
+border-radius:18px;
+padding:10px 5px;
+}
+
+.bottom a{
+flex:1;
+text-align:center;
+text-decoration:none;
+color:#68778a;
+font-size:9px;
+}
+
+.bottom-icon{
+display:block;
+font-size:18px;
+margin-bottom:4px;
+}
+
+.bottom a.active{
+color:#ffd43b;
+}
+
+.message{
+display:none;
+padding:11px;
+border-radius:11px;
+margin-top:12px;
+font-size:10px;
+text-align:center;
+}
+
+.message.success{
+display:block;
+background:rgba(34,197,94,.08);
+color:#86efac;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-🚚 Driver Dashboard
+<div class="app">
+
+<header class="header">
+
+<div class="top">
+
+<div class="brand">
+
+<div class="logo">🚛</div>
+
+<div>
+<h1>Arisudan Trucks</h1>
+<p>DRIVER COMMAND CENTER</p>
+</div>
+
+</div>
+
+<a class="profile" href="profile.html">👤</a>
+
+</div>
+
 </header>
 
-<div class="container">
 
-<div class="card">
+<main class="content">
 
-<h2>Assigned Trip</h2>
+<div class="welcome">
 
-<p><b>Booking:</b> AT100001</p>
+<small>DRIVER DASHBOARD</small>
 
-<p><b>Pickup:</b> Vijayapura</p>
+<h2 id="driverName">Driver</h2>
 
-<p><b>Drop:</b> Bengaluru</p>
+<p>Here are the trips assigned to you.</p>
 
-<p class="status" id="tripStatus">
-Driver Assigned
+</div>
+
+
+<div class="driver-card">
+
+<div class="driver-row">
+
+<div class="driver-avatar" id="avatar">
+D
+</div>
+
+<div class="driver-info">
+
+<h3 id="driverFullName">
+Driver Account
+</h3>
+
+<p id="driverMobile">
+Driver
 </p>
 
-<button onclick="updateStatus()">
-Update Status
+</div>
+
+<div class="online">
+● ACTIVE
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong id="assignedCount">
+0
+</strong>
+
+<span>ASSIGNED TRIPS</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="activeCount">
+0
+</strong>
+
+<span>ACTIVE TRIPS</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="message" class="message"></div>
+
+
+<div class="title">
+
+<h3>My Assigned Trips</h3>
+
+<span>ADMIN ASSIGNED</span>
+
+</div>
+
+
+<div id="tripList"></div>
+
+
+<nav class="bottom">
+
+<a class="active" href="driver.html">
+
+<span class="bottom-icon">⌂</span>
+Trips
+
+</a>
+
+<a href="track.html">
+
+<span class="bottom-icon">📍</span>
+Track
+
+</a>
+
+<a href="profile.html">
+
+<span class="bottom-icon">👤</span>
+Profile
+
+</a>
+
+</nav>
+
+</main>
+
+</div>
+
+
+<script>
+
+function getSession(){
+
+let data =
+localStorage.getItem(
+"arisudan_session"
+);
+
+if(!data){
+
+data =
+sessionStorage.getItem(
+"arisudan_session"
+);
+
+}
+
+if(!data){
+return null;
+}
+
+try{
+return JSON.parse(data);
+}
+catch(e){
+return null;
+}
+
+}
+
+
+function safe(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function loadDriver(){
+
+const session =
+getSession();
+
+
+if(!session){
+
+document.getElementById(
+"driverName"
+).textContent="Driver";
+
+document.getElementById(
+"driverFullName"
+).textContent="Driver Account";
+
+}else{
+
+const name =
+session.name || "Driver";
+
+document.getElementById(
+"driverName"
+).textContent=name;
+
+document.getElementById(
+"driverFullName"
+).textContent=name;
+
+document.getElementById(
+"driverMobile"
+).textContent=
+session.mobile || "Driver";
+
+document.getElementById(
+"avatar"
+).textContent=
+name.charAt(0).toUpperCase();
+
+}
+
+
+/*
+Only bookings assigned to THIS driver.
+Admin can assign a booking by adding:
+
+driverMobile: "driver mobile number"
+
+to the booking object.
+*/
+
+let bookings =
+JSON.parse(
+localStorage.getItem("bookings")
+) || [];
+
+
+if(session && session.mobile){
+
+bookings =
+bookings.filter(function(booking){
+
+return String(
+booking.driverMobile || ""
+) === String(
+session.mobile
+);
+
+});
+
+}else{
+
+bookings=[];
+
+}
+
+
+const assigned =
+bookings.length;
+
+
+const active =
+bookings.filter(function(booking){
+
+return booking.status !== "Delivered" &&
+booking.status !== "Cancelled";
+
+}).length;
+
+
+document.getElementById(
+"assignedCount"
+).textContent=assigned;
+
+document.getElementById(
+"activeCount"
+).textContent=active;
+
+
+const list =
+document.getElementById(
+"tripList"
+);
+
+
+if(bookings.length===0){
+
+list.innerHTML=`
+
+<div class="empty">
+
+<div class="empty-icon">🚚</div>
+
+<h3>No trips assigned yet</h3>
+
+<p>
+When admin assigns a booking to you,
+it will appear here.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML =
+bookings
+.slice()
+.reverse()
+.map(function(b){
+
+const status =
+b.status || "Booked";
+
+return `
+
+<div class="trip">
+
+<div class="trip-top">
+
+<div class="booking-id">
+#${safe(b.id)}
+</div>
+
+<div class="status">
+${safe(status)}
+</div>
+
+</div>
+
+
+<div class="route">
+
+<div class="route-line">
+
+<div class="dot"></div>
+
+<div class="line"></div>
+
+<div class="dot"></div>
+
+</div>
+
+
+<div class="route-text">
+
+<div class="location">
+
+${safe(b.pickup || "-")}
+
+<small>
+PICKUP LOCATION
+</small>
+
+</div>
+
+
+<div class="location">
+
+${safe(b.drop || "-")}
+
+<small>
+DROP LOCATION
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-box">
+
+<span>VEHICLE</span>
+
+<strong>
+${safe(b.vehicle || "-")}
+</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<span>DISTANCE</span>
+
+<strong>
+${safe(b.distance || 0)} KM
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="action">
+
+<button
+class="start"
+onclick="updateTrip('${safe(b.id)}','In Transit')">
+
+🚚 START TRIP
+
+</button>
+
+<button
+class="deliver"
+onclick="updateTrip('${safe(b.id)}','Delivered')">
+
+✓ DELIVERED
+
 </button>
 
 </div>
 
 </div>
 
-<script>
+`;
 
-const trip=[
-"Driver Assigned",
-"Picked Up",
-"In Transit",
-"Delivered"
-];
-
-let index=0;
-
-function updateStatus(){
-
-if(index<trip.length-1){
-index++;
-}
-
-document.getElementById("tripStatus").innerHTML=trip[index];
+}).join("");
 
 }
+
+
+function updateTrip(id,status){
+
+let bookings =
+JSON.parse(
+localStorage.getItem("bookings")
+) || [];
+
+
+let found=false;
+
+
+bookings =
+bookings.map(function(booking){
+
+if(String(booking.id)===String(id)){
+
+booking.status=status;
+
+booking.updatedAt=
+new Date().toISOString();
+
+found=true;
+
+}
+
+return booking;
+
+});
+
+
+if(found){
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+showMessage(
+"Trip status updated: "+status
+);
+
+loadDriver();
+
+}
+
+}
+
+
+function showMessage(text){
+
+const message =
+document.getElementById(
+"message"
+);
+
+message.textContent=text;
+
+message.className=
+"message success";
+
+setTimeout(function(){
+
+message.className="message";
+
+},2500);
+
+}
+
+
+loadDriver();
 
 </script>
 
