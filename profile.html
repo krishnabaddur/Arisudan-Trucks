@@ -69,6 +69,7 @@ width:100%;
 padding:12px;
 border:none;
 border-radius:10px;
+box-sizing:border-box;
 }
 
 button{
@@ -86,7 +87,6 @@ cursor:pointer;
 </style>
 
 </head>
-
 <body>
 
 <header>👤 My Profile</header>
@@ -103,24 +103,46 @@ cursor:pointer;
 
 <div class="row">
 <label>Full Name</label>
-<input value="Arisudan User">
+<input id="name" value="Arisudan User">
 </div>
 
 <div class="row">
 <label>Email</label>
-<input value="user@email.com">
+<input id="email" value="user@email.com">
 </div>
 
 <div class="row">
 <label>Phone</label>
-<input value="+91 9876543210">
+<input id="phone" value="+91 9876543210">
 </div>
 
-<button>Save Changes</button>
+<button onclick="saveProfile()">Save Changes</button>
 
 </div>
 
 </div>
+
+<script>
+window.onload=function(){
+const profile=JSON.parse(localStorage.getItem("profile"));
+if(profile){
+document.getElementById("name").value=profile.name;
+document.getElementById("email").value=profile.email;
+document.getElementById("phone").value=profile.phone;
+}
+}
+
+function saveProfile(){
+const profile={
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value
+};
+
+localStorage.setItem("profile",JSON.stringify(profile));
+alert("Profile Saved Successfully");
+}
+</script>
 
 </body>
 </html>
